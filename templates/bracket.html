@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Orbit&display=swap" rel="stylesheet">
+    <title>NCAA Wrestling Championships Bracket Challenge</title>
+    <style>
+
+         /* SPECIFIES THE NATURE OF THE FADE IN TRANSITION FOR ELEMENTS */
+         @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            background-color: #ffffff;
+            margin-bottom: 500px;
+            font-family: 'Montserrat', sans-serif;
+            /* Change to your preferred color */
+        }
+
+        /* CREATES AND SPECIFIES THE PARAMETERS FOR THE CONTAINER IN RELATION TO THE BODY */
+        .container {
+            overflow-x: visible;
+            width: 100%;
+        }
+
+        /* CREATES AND SPECIFIES THE POSITION OF THE ENTIRE BRACKET IN RELATION TO THE CONTAINER */
+        .bracket {
+            margin-top: 0px;
+            display: flex;
+            min-width: 3650px;
+            flex-direction: row;
+            padding: 0 30px;
+            box-sizing: border-box;
+            border: 1px grey;
+            justify-content: space-between;
+            flex-wrap: nowrap; /* prevents wrapping onto next line */
+            
+        }
+
+
+
+        /* SPECIFIES THE POSITION OF EACH ROUND IN RELATION TO OTHER ROUNDS AND IN RELATION TO THE BRACKET */
+        .round {
+            margin-top: 0px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-right: 37px;
+            margin-left: 13px;
+            box-sizing: border-box;
+            transition: border-color 0.1s ease-in-out; /* This will animate the color change */
+            border-radius: 5px;
+            /* ADDS A BORDER AROUND EACH ROUND */
+            border: 1px solid #ffffff; /* Change this color to suit your design */
+            padding: 10px; /* Add some padding so the content isn't right against the border */
+            margin-bottom: 20px; /* Add some margin to separate each round */
+            box-sizing: border-box;
+        }
+
+        /* ADDS A HOVER EFFECT TO EACH ROUND */
+        .round:hover {
+            background-color: rgb(232, 232, 232); /* Change this color to the desired hover color */
+}
+
+        /* CUSTOMIZES THE APPEARANCE OF THE BANNER THAT APPEARS ABOVE EACH ROUND */
+        .round-banner {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.519);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 550px;
+            background-color: #005eb8;
+            /* Adjust this to your liking */
+            color: #474747f0;
+            /* Adjust this to your liking */
+            text-align: center;
+            padding: 20px 0px;
+            /* Adjust this to your liking */
+            margin-bottom: 10px;
+            /* Adjust this to your liking */
+            font-size: 1.5em;
+            /* Adjust this to your liking */
+            z-index: 100;
+            /* This ensures the banner is above the matchups */
+            overflow: visible;
+            color: #ffffff;
+            border-radius: 3px;
+
+           
+        }
+
+        /* ADDS SPACE TO THE RIGHT OF THE CHAMPIONSHIP MATCHUP SO THE SHADOW DOESN'T CUTOFF (+ EXTRA ROOM)*/
+        .round:last-child {
+            margin-right: 50px;
+            /* Adjust this value according to your needs */
+        }
+
+
+        .matchup {
+            position: relative;
+            /* added this */
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ffffff00;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.519);
+            width: 400px;
+            height: 100px;
+            border-radius: 3px;
+            background-color: white;
+            min-width: 550px;
+            box-sizing: border-box;
+            z-index: 1;
+            /*animation: fadeIn .6s ease-in;*/
+
+        }
+
+
+        .matchup::after { /*Horizontal connector line that extends to the right of each matchup (connects to vertical line)*/
+            content: '';
+            position: relative;
+            top: -50px;
+            left: 0px;
+            /* adjust this value to position the line correctly */
+            width: 683px;
+            /* adjust this value according to your layout */
+            height: 1px;
+            background: #989898;
+            z-index: 2;
+            animation: fadeIn .6s ease-in;
+
+        }
+
+
+        .round-6 .matchup::after,
+        .championship .matchup::after {
+            content: none;
+            animation: fadeIn .6s ease-in;
+        }
+
+    
+        .participant {
+            color: #000000ed;
+            font-size: 125%;
+            text-transform: uppercase;
+            height: 20px;
+            border: 0px solid #47474779;
+            padding: 0px 0px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            flex-direction: row;
+            animation: fadeIn 1s ease-in;
+
+
+        }
+
+        .participant .name {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .participant .name div:first-child {
+            margin-right: 5px;
+
+        }
+
+    
+
+        .participant:hover,
+        .participant:active {
+            color: black;
+            background-color: rgb(181, 181, 181);
+            /* replace with your desired color */
+            cursor: default;
+        }
+
+
+        .seed {
+            font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            margin-right: 20px;
+            margin-left: 0px;
+            width: 60px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn .6s ease-in;
+        }
+
+
+        .champion {
+            background-color: rgba(255, 217, 0, 0.974);
+        }
+
+        .name {
+            text-transform: capitalize;
+        }
+
+        .name .last {
+            text-transform: uppercase; /* This will make all letters uppercase */
+        }
+
+        .school {
+            text-transform: capitalize;
+            font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        #participants-container > div {  /* Style for each participant box */
+            margin-bottom: 10px; /* Add some margin below each participant for visual separation */
+            padding: 10px; /* Add some padding within each participant for visual separation */
+        }
+
+        .seed, .name, .school {
+            margin-right: 10px;  /* Adjust as per your needs */
+        }
+
+        .participant .school { /*Customizing the text of the School Name*/
+            font-style: italic;
+            text-shadow: 1px 1px 1px #0000001d;
+            color: #575757;
+            animation: fadeIn .6s ease-in;
+
+        }
+
+        .parcticipant .seed {
+            font-size: 29px;
+            animation: fadeIn .6s ease-in;
+
+        }
+
+        /*This is adding a margin for the "Winner of Prelim" label, but then removing it when the participant clicked is populated*/
+        #winnerOfPrelim {
+            margin-left: 25px;
+        }
+        .no-left-margin {
+            margin-left: 0px !important;
+        }
+
+        .participant-details {
+            /* style as needed, position relative */
+            position: relative;
+            z-index: 2;
+            /* ...other styles... */
+        }
+
+        .vertical-line {
+            /* make this position relative too */
+            position: absolute;
+            /* it might be helpful to give this a height so you can see what's going on */
+            height: 150px;
+            z-index: 0;
+        }
+
+        .vertical-line::before {
+            /* your original styles for the vertical line */
+            content: "";
+            position: absolute;
+            width: 1px;
+            background-color: #989898;
+            height: 100%;  /* this will make it the full height of .vertical-line */
+            animation: fadeIn 1s ease-in;
+        }
+
+        .round-3-first-line {
+            top: 199px;
+            left: 71px;
+        }
+
+        .round-3-second-line {
+            top: 499px;
+            left: 71px;
+        }
+
+        .round-3-third-line {
+            top: 799px;
+            left: 71px;
+        }
+
+        .round-3-fourth-line {
+            top: 1099px;
+            left: 71px;
+        }
+
+        .round-3-fifth-line {
+            top: 1399px;
+            left: 71px;
+        }
+
+        .round-3-sixth-line {
+            top: 1699px;
+            left: 71px;
+        }
+
+        .round-3-seventh-line {
+            top: 1999px;
+            left: 71px;
+        }
+
+        .round-3-eighth-line {
+            top: 2299px;
+            left: 71px;
+        }
+
+        .round-4-line::before {
+            height: 100%; /* this will make the pseudo-element the full height of .round-4-line */
+        }
+
+        .round-4-first-line {
+            top: 273px;
+            left: 71px;
+            height: 300px;
+        }
+
+        .round-4-second-line {
+            top: 873px;
+            left: 71px;
+            height: 300px;
+        }
+
+        .round-4-third-line {
+            top: 1473px;
+            left: 71px;
+            height: 300px;
+        }
+
+        .round-4-fourth-line {
+            top: 2073px;
+            left: 71px;
+            height: 300px;
+        }
+
+        .round-5-line::before {
+            height: 100%; /* this will make the pseudo-element the full height of .round-4-line */
+        }
+
+        .round-5-first-line {
+            top: 424px;
+            left: 71px;
+            height: 600px;
+        }
+
+        .round-5-second-line {
+            top: 1624px;
+            left: 71px;
+            height: 600px;
+        }
+
+        .round-6-line::before {
+            height: 100%; /* this will make the pseudo-element the full height of .round-4-line */
+        }
+
+        .round-6-first-line {
+            top: 724px;
+            left: 71px;
+            height: 1200px;
+        }
+
+        .champion-section {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 95%;
+            margin: auto;
+            top: 450px;
+            z-index: 1;
+        }
+
+        .champion-section h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        #predictedChampion {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            background-color: #fff;
+            padding: 30px;
+            border: 5px solid #ddd;
+            border-radius: 10px;
+        }
+
+        #championSeed {
+            color: #999;
+            font-size: 1.5em;
+        }
+
+        #championFirstName, #championLastName, #championSchool {
+            color: #333;
+            font-size: 1.5em;
+            margin-top: 0px;
+        }
+
+        button:active {
+            transform: scale(0.90);  /* shrinks the button to 95% of its original size */
+            transition: transform 0.1s;  /* specifies the duration of the animation */
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <div class="container">
+        <div class="bracket">
+            <div class="round" id="prelimround">
+                <div class="round-banner">Preliminary Round 1</div>
+
+                <!-- Preliminary match (Match 0) -->
+                <div id="Match0" class="matchup" style="margin-top: 90px;"> 
+                    <div class="participant" onclick="selectParticipant(this)" data-match="0" data-next-match="Match1" data-slot="1" data-replace-slot="2" data-next-match-loser="consoMatch0" data-replace-slot-loser="1">
+                        <div class="seed" id="seed32"></div>   
+                        <div class="name">
+                            <div class="firstName" id="firstname32"></div> 
+                            <div class="lastName" id="lastname32"></div>
+                        </div>
+                        <div class="school" id="school32"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="0" data-next-match="Match1" data-slot="2" data-replace-slot="2" data-next-match-loser="consoMatch0" data-replace-slot-loser="1">
+                        <div class="seed" id="seed33"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname33"></div> 
+                            <div class="lastName" id="lastname33"></div>
+                        </div>
+                        <div class="school" id="school33"></div> 
+                    </div>
+
+                    <div class="connector"></div> <!-- Add the connector line here -->
+                </div>
+                </div>
+            <div class="round" id="roundof32">
+                <div class="round-banner">Round of 32</div>
+                <!-- Match 1 -->
+                <div class="matchup" style="margin-top: 63px;" id="Match1"> 
+                    <div class="participant" onclick="selectParticipant(this)" data-match="1" data-next-match="Match17" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname1"></div> 
+                            <div class="lastName" id="lastname1"></div>
+                        </div>
+                        <div class="school" id="school1"></div> 
+                    </div>
+                    <div class="participant" id="ParticipantOfPrelim" onclick="selectParticipant(this)" data-match="1" data-next-match="Match17" data-prev-match="0" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="SeedOfPrelim"></div> 
+                        <div class="name">
+                            <div class="firstName" id="FirstnameOfPrelim"></div> 
+                            <div class="lastName" id="LastnameOfPrelim"></div>
+                        </div>
+                        <div class="school" id="SchoolOfPrelim"></div> 
+                    </div>
+                </div>
+          
+
+                <!-- Match 2 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="2" data-next-match="Match17" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed17"></div>   
+                        <div class="name">
+                            <div class="firstName" id="firstname17"></div> 
+                            <div class="lastName" id="lastname17"></div>
+                        </div>
+                        <div class="school" id="school17"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="2" data-next-match="Match17" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed16"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname16"></div> 
+                            <div class="lastName" id="lastname16"></div>
+                        </div>
+                        <div class="school" id="school16"></div> 
+                    </div>
+                </div>
+
+
+                <!-- Match 3 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="3" data-next-match="Match18" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed9"></div>   
+                        <div class="name">
+                            <div class="firstName" id="firstname9"></div> 
+                            <div class="lastName" id="lastname9"></div>
+                        </div>
+                        <div class="school" id="school9"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="3" data-next-match="Match18" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed24"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname24"></div> 
+                            <div class="lastName" id="lastname24"></div>
+                        </div>
+                        <div class="school" id="school24"></div> 
+                    </div>
+                </div>
+
+                <!-- Match 4 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="4" data-next-match="Match18" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed25"></div>   
+                        <div class="name">
+                            <div class="firstName" id="firstname25"></div> 
+                            <div class="lastName" id="lastname25"></div>
+                        </div>
+                        <div class="school" id="school25"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="4" data-next-match="Match18" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed8"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname8"></div> 
+                            <div class="lastName" id="lastname8"></div>
+                        </div>
+                        <div class="school" id="school8"></div> 
+                    </div>
+                </div>
+
+                <!-- Match 5 -->
+                <div class="matchup" style="margin-top: 50px;" id="Match5">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="5" data-next-match="Match19" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed5"></div>   
+                        <div class="name">
+                            <div class="firstName" id="firstname5"></div> 
+                            <div class="lastName" id="lastname5"></div>
+                        </div>
+                        <div class="school" id="school5"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="5" data-next-match="Match19" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed28"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname28"></div> 
+                            <div class="lastName" id="lastname28"></div>
+                        </div>
+                        <div class="school" id="school28"></div> 
+                    </div>
+                </div>
+
+                <!-- Match 6 -->
+                <div class="matchup" style="margin-top: 50px;" id="Match6">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="6" data-next-match="Match19" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed21"></div>   
+                        <div class="name">
+                            <div class="firstName" id="firstname21"></div> 
+                            <div class="lastName" id="lastname21"></div>
+                        </div>
+                        <div class="school" id="school21"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="6" data-next-match="Match19" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed12"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname12"></div> 
+                            <div class="lastName" id="lastname12"></div>
+                        </div>
+                        <div class="school" id="school12"></div> 
+                    </div>
+                </div>
+
+                <!-- Match 7 -->
+                <div class="matchup" style="margin-top: 50px;" id="Match7">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="7" data-next-match="Match20" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed13"></div>   
+                        <div class="name">
+                            <div class="firstName" id="firstname13"></div> 
+                            <div class="lastName" id="lastname13"></div>
+                        </div>
+                        <div class="school" id="school13"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="7" data-next-match="Match20" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed20"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname20"></div> 
+                            <div class="lastName" id="lastname20"></div>
+                        </div>
+                        <div class="school" id="school20"></div> 
+                    </div>
+                </div>
+
+
+                <!-- Match 8 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="8" data-next-match="Match20" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed29"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname29"></div> 
+                            <div class="lastName" id="lastname29"></div>
+                        </div>
+                        <div class="school" id="school29"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="8" data-next-match="Match20" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed4"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname4"></div> 
+                            <div class="lastName" id="lastname4"></div>
+                        </div>
+                        <div class="school" id="school4"></div> 
+                    </div>
+                </div>
+
+                <!-- Match 9 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="9" data-next-match="Match21" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed3"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname3"></div> 
+                            <div class="lastName" id="lastname3"></div>
+                        </div>
+                        <div class="school" id="school3"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="9" data-next-match="Match21" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed30"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname30"></div> 
+                            <div class="lastName" id="lastname30"></div>
+                        </div>
+                        <div class="school" id="school30"></div> 
+                    </div>
+                </div>
+
+                <!-- Match 10 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="10" data-next-match="Match21" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed19"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname19"></div> 
+                            <div class="lastName" id="lastname19"></div>
+                        </div>
+                        <div class="school" id="school19"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="10" data-next-match="Match21" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed14"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname14"></div> 
+                            <div class="lastName" id="lastname14"></div>
+                        </div>
+                        <div class="school" id="school14"></div> 
+                    </div>
+                </div>
+
+                <!-- Match 11 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="11" data-next-match="Match22" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed11"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname11"></div> 
+                            <div class="lastName" id="lastname11"></div>
+                        </div>
+                        <div class="school" id="school11"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="11" data-next-match="Match22" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed22"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname22"></div> 
+                            <div class="lastName" id="lastname22"></div>
+                        </div>
+                        <div class="school" id="school22"></div> 
+                    </div>
+                </div>
+
+                <!-- Match 12 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="12" data-next-match="Match22" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed27"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname27"></div> 
+                            <div class="lastName" id="lastname27"></div>
+                        </div>
+                        <div class="school" id="school27"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="12" data-next-match="Match22" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed6"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname6"></div> 
+                            <div class="lastName" id="lastname6"></div>
+                        </div>
+                        <div class="school" id="school6"></div> 
+                    </div>
+                </div>
+
+                <!-- Match 13 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="13" data-next-match="Match23" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed7"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname7"></div> 
+                            <div class="lastName" id="lastname7"></div>
+                        </div>
+                        <div class="school" id="school7"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="13" data-next-match="Match23" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed26"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname26"></div> 
+                            <div class="lastName" id="lastname26"></div>
+                        </div>
+                        <div class="school" id="school26"></div> 
+                    </div>
+                </div>
+
+                <!-- Match 14 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="14" data-next-match="Match23" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed23"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname23"></div> 
+                            <div class="lastName" id="lastname23"></div>
+                        </div>
+                        <div class="school" id="school23"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="14" data-next-match="Match23" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed10"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname10"></div> 
+                            <div class="lastName" id="lastname10"></div>
+                        </div>
+                        <div class="school" id="school10"></div> 
+                    </div>
+                </div>
+
+
+                <!-- Match 15 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="15" data-next-match="Match24" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed15"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname15"></div> 
+                            <div class="lastName" id="lastname15"></div>
+                        </div>
+                        <div class="school" id="school15"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="15" data-next-match="Match24" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed18"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname18"></div> 
+                            <div class="lastName" id="lastname18"></div>
+                        </div>
+                        <div class="school" id="school18"></div> 
+                    </div>                 
+                </div>
+                
+                <!-- Match 16 -->
+                <div class="matchup" style="margin-top: 50px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="16" data-next-match="Match24" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed31"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname31"></div> 
+                            <div class="lastName" id="lastname31"></div>
+                        </div>
+                        <div class="school" id="school31"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="16" data-next-match="Match24" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname2"></div> 
+                            <div class="lastName" id="lastname2"></div>
+                        </div>
+                        <div class="school" id="school2"></div> 
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="round" id="roundof16">
+                <div class="round-banner">Round of 16</div>
+
+                
+                <!-- Match 17 -->
+                <div id="Match17" class="matchup" style="margin-top: 137px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="17" data-next-match="Match25" data-prev-match="1" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed17-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname17-1"></div> 
+                            <div class="lastName" id="lastname17-1"></div>
+                        </div>
+                        <div class="school" id="school17-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="17" data-next-match="Match25" data-prev-match="1" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed17-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname17-2"></div> 
+                            <div class="lastName" id="lastname17-2"></div>
+                        </div>
+                        <div class="school" id="school17-2"></div> 
+                    </div>
+                </div>  
+                <div class="vertical-line round-3-first-line"></div>
+
+                <!-- Match 18 -->
+                <div id="Match18" class="matchup" style="margin-top: 200px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="18" data-next-match="Match25" data-prev-match="2" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed18-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname18-1"></div> 
+                            <div class="lastName" id="lastname18-1"></div>
+                        </div>
+                        <div class="school" id="school18-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="18" data-next-match="Match25" data-prev-match="2" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed18-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname18-2"></div> 
+                            <div class="lastName" id="lastname18-2"></div>
+                        </div>
+                        <div class="school" id="school18-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-3-second-line"></div>
+
+                <!-- Match 19 -->
+                <div id="Match19" class="matchup" style="margin-top: 200px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="19" data-next-match="Match26" data-prev-match="3" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed19-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname19-1"></div> 
+                            <div class="lastName" id="lastname19-1"></div>
+                        </div>
+                        <div class="school" id="school19-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="19" data-next-match="Match26" data-prev-match="3" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed19-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname19-2"></div> 
+                            <div class="lastName" id="lastname19-2"></div>
+                        </div>
+                        <div class="school" id="school19-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-3-third-line"></div>
+
+                <!-- Match 20 -->
+                <div id="Match20" class="matchup" style="margin-top: 200px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="20" data-next-match="Match26" data-prev-match="4" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed20-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname20-1"></div> 
+                            <div class="lastName" id="lastname20-1"></div>
+                        </div>
+                        <div class="school" id="school20-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="20" data-next-match="Match26" data-prev-match="4" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed20-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname20-2"></div> 
+                            <div class="lastName" id="lastname20-2"></div>
+                        </div>
+                        <div class="school" id="school20-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-3-fourth-line"></div>
+
+
+                <!-- Match 21 -->
+                <div id="Match21" class="matchup" style="margin-top: 200px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="21" data-next-match="Match27" data-prev-match="5" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed21-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname21-1"></div> 
+                            <div class="lastName" id="lastname21-1"></div>
+                        </div>
+                        <div class="school" id="school21-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="21" data-next-match="Match27" data-prev-match="5" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed21-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname21-2"></div> 
+                            <div class="lastName" id="lastname21-2"></div>
+                        </div>
+                        <div class="school" id="school21-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-3-fifth-line"></div>
+
+                <!-- Match 22 -->
+                <div id="Match22" class="matchup" style="margin-top: 200px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="22" data-next-match="Match27" data-prev-match="6" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed22-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname22-1"></div> 
+                            <div class="lastName" id="lastname22-1"></div>
+                        </div>
+                        <div class="school" id="school22-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="22" data-next-match="Match27" data-prev-match="6" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed22-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname22-2"></div> 
+                            <div class="lastName" id="lastname22-2"></div>
+                        </div>
+                        <div class="school" id="school22-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-3-sixth-line"></div>
+
+
+                <!-- Match 23 -->
+                <div id="Match23" class="matchup" style="margin-top: 200px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="23" data-next-match="Match28" data-prev-match="7" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed23-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname23-1"></div> 
+                            <div class="lastName" id="lastname23-1"></div>
+                        </div>
+                        <div class="school" id="school23-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="23" data-next-match="Match28" data-prev-match="7" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed23-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname23-2"></div> 
+                            <div class="lastName" id="lastname23-2"></div>
+                        </div>
+                        <div class="school" id="school23-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-3-seventh-line"></div>
+
+                <!-- Match 24 -->
+                <div id="Match24" class="matchup" style="margin-top: 200px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="24" data-next-match="Match28" data-prev-match="8" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed24-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname24-1"></div> 
+                            <div class="lastName" id="lastname24-1"></div>
+                        </div>
+                        <div class="school" id="school24-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="24" data-next-match="Match28" data-prev-match="8" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed24-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname24-2"></div> 
+                            <div class="lastName" id="lastname24-2"></div>
+                        </div>
+                        <div class="school" id="school24-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-3-eighth-line"></div>
+
+            </div>
+            <div class="round" id="Quarterfinals">
+                <div class="round-banner">Quarterfinals</div>
+
+                <!-- Match 25 -->
+                <div id="Match25" class="matchup" style="margin-top: 288px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="25" data-next-match="Match29" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed25-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname25-1"></div> 
+                            <div class="lastName" id="lastname25-1"></div>
+                        </div>
+                        <div class="school" id="school25-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="25" data-next-match="Match29" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed25-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname25-2"></div> 
+                            <div class="lastName" id="lastname25-2"></div>
+                        </div>
+                        <div class="school" id="school25-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-4-first-line"></div>
+
+                <!-- Match 26 -->
+                <div id="Match26" class="matchup" style="margin-top: 500px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="26" data-next-match="Match29" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed26-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname26-1"></div> 
+                            <div class="lastName" id="lastname26-1"></div>
+                        </div>
+                        <div class="school" id="school26-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="26" data-next-match="Match29" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed26-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname26-2"></div> 
+                            <div class="lastName" id="lastname26-2"></div>
+                        </div>
+                        <div class="school" id="school26-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-4-second-line"></div>
+
+
+                <!-- Match 27 -->
+                <div id="Match27" class="matchup" style="margin-top: 500px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="27" data-next-match="Match30" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed27-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname27-1"></div> 
+                            <div class="lastName" id="lastname27-1"></div>
+                        </div>
+                        <div class="school" id="school27-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="27" data-next-match="Match30" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed27-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname27-2"></div> 
+                            <div class="lastName" id="lastname27-2"></div>
+                        </div>
+                        <div class="school" id="school27-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-4-third-line"></div>
+
+                <!-- Match 28 -->
+                <div id="Match28" class="matchup" style="margin-top: 500px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="28" data-next-match="Match30" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed28-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname28-1"></div> 
+                            <div class="lastName" id="lastname28-1"></div>
+                        </div>
+                        <div class="school" id="school28-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="28" data-next-match="Match30" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed28-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname28-2"></div> 
+                            <div class="lastName" id="lastname28-2"></div>
+                        </div>
+                        <div class="school" id="school28-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-4-fourth-line"></div>
+
+
+
+            </div>
+            <div class="round" id="Semifinals">
+                <div class="round-banner">Semifinals</div>
+
+                <!-- Match 29 -->
+                <div id="Match29" class="matchup" style="margin-top: 588px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="29" data-next-match="Match31" data-slot="1" data-replace-slot="1">
+                        <div class="seed" id="seed29-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname29-1"></div> 
+                            <div class="lastName" id="lastname29-1"></div>
+                        </div>
+                        <div class="school" id="school29-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="29" data-next-match="Match31" data-slot="2" data-replace-slot="1">
+                        <div class="seed" id="seed29-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname29-2"></div> 
+                            <div class="lastName" id="lastname29-2"></div>
+                        </div>
+                        <div class="school" id="school29-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-5-first-line"></div>
+
+    
+
+
+                <!-- Match 30 -->
+                <div id="Match30" class="matchup" style="margin-top: 1100px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="30" data-next-match="Match31" data-slot="1" data-replace-slot="2">
+                        <div class="seed" id="seed30-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname30-1"></div> 
+                            <div class="lastName" id="lastname30-1"></div>
+                        </div>
+                        <div class="school" id="school30-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="30" data-next-match="Match31" data-slot="2" data-replace-slot="2">
+                        <div class="seed" id="seed30-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname30-2"></div> 
+                            <div class="lastName" id="lastname30-2"></div>
+                        </div>
+                        <div class="school" id="school30-2"></div> 
+                    </div>
+                </div>
+                <div class="vertical-line round-5-second-line"></div>
+
+
+            </div>
+            <div class="round" id="Finals">
+                <div class="round-banner">Finals</div>
+
+                <!-- Finals -->
+                <div class="container">
+                <div id="Match31" class="matchup champion" style="margin-top: 1188px;">
+                    <div class="participant" onclick="selectParticipant(this)" data-match="31" data-next-match="predictedChampion" data-replace-slot="1" data-slot="1">
+                        <div class="seed" id="seed31-1"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname31-1"></div> 
+                            <div class="lastName" id="lastname31-1"></div>
+                        </div>
+                        <div class="school" id="school31-1"></div> 
+                    </div>
+                    <div class="participant" onclick="selectParticipant(this)" data-match="31" data-next-match="predictedChampion" data-replace-slot="1" data-slot="2">
+                        <div class="seed" id="seed31-2"></div> 
+                        <div class="name">
+                            <div class="firstName" id="firstname31-2"></div> 
+                            <div class="lastName" id="lastname31-2"></div>
+                        </div>
+                        <div class="school" id="school31-2"></div> 
+                    </div>
+                </div>
+                </div>
+                <div class="vertical-line round-6-first-line"></div>
+
+
+            </div>
+            <div class="round" id="Champion">
+                <div class="round-banner">Champion</div>
+                <!-- Champion -->
+                <div class="champion-section" style="margin-top: 1085px;">
+                    <h2>125lb NCAA Champion</h2>
+                    <div class="participant" id="predictedChampion">
+                        <div class="seed" id="championSeed"></div>
+                        <div class="name">
+                            <div class="firstName" id="championFirstName"></div> 
+                            <div class="lastName" id="championLastName"></div>
+                        </div>
+                        <div class="school" id="championSchool"></div> 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="bracket">
+                <div class="round" id="consoprelimround">
+                    <div class="matchup" id="consoMatch0" style="margin-top:50px">
+                        <div class="participant" onclick="selectParticipant(this)" data-match="consoMatch0" data-next-match="consoMatch5" data-slot="1" data-replace-slot="1">
+                            <div class="seed"></div>
+                            <div class="name">
+                                <div class="firstName"></div>
+                                <div class="lastName"></div>
+                            </div>
+                            <div class="school"></div>
+                        </div>
+                        <div class="participant" onclick="selectParticipant(this)" data-match="consoMatch0" data-next-match="consoMatch5" data-slot="2" data-replace-slot="1">
+                            <div class="seed"></div>
+                            <div class="name">
+                                <div class="firstName"></div>
+                                <div class="lastName"></div>
+                            </div>
+                            <div class="school"></div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+        import { getFirestore, collection, addDoc, doc, setDoc, getDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCPdrvp8wn0qqo2pSRXrCmC4PMRprzPFN0",
+            authDomain: "ncaa-bracket-challenge.firebaseapp.com",
+            projectId: "ncaa-bracket-challenge",
+            storageBucket: "ncaa-bracket-challenge.appspot.com",
+            messagingSenderId: "654181665464",
+            appId: "1:654181665464:web:f6d4fd1b4cf20789ee824d",
+            measurementId: "G-50BYF49X2K"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+        async function addWeightClass(db, weightClassName, participants) {
+            const docRef = doc(db, "WeightClasses", weightClassName);
+            await setDoc (docRef, {
+                weightClass: weightClassName,
+                participants: participants
+            });
+            console.log("Document written with ID: ", docRef.id);
+        }
+
+        async function getWeightClass(db, weightClassName) {
+            const weightClassesRef = collection(db, "WeightClasses");
+            const q = query(weightClassesRef, where("weightClass", "==", weightClassName));
+            const querySnapshot = await getDocs(q);
+
+            if (!querySnapshot.empty) {
+                querySnapshot.forEach((doc) => {
+                    console.log("Document data:", doc.data());
+                });
+                return querySnapshot.docs[0].data().participants;
+            } else {
+                console.log("No such document!");
+                return [];
+            }
+        }
+
+        function toTitleCase(str) {
+            return str.replace(/\w\S*/g, function(txt){
+                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            });
+        }
+
+        function toUpperCase(str) {
+            return str.toUpperCase();
+        }
+
+        function formatName(name) {
+            let [firstname, ...lastname] = name.split(' ');
+            lastname = lastname.join(' '); // in case the last name has multiple words
+            return `${toTitleCase(firstname)} ${toUpperCase(lastname)}`;
+        }
+        
+        addWeightClass(db, "125 lbs", [
+            { name: "Spencer Lee", school: "Iowa", seed: 1},
+            { name: "Pat Glory", school: "Princeton", seed: 2},
+            { name: "Liam Cronin", school: "Nebraska", seed: 3},
+            { name: "Matt Ramos", school: "Purdue", seed: 4},
+            { name: "Caleb Smith", school: "Appalachian State", seed: 5},
+            { name: "Stevo Poulin", school: "Northern Colorado", seed: 6},
+            { name: "Brandon Kaylor", school: "Oregon State", seed: 7},
+            { name: "Anthony Noto", school: "Lehigh", seed: 8},
+            { name: "Eric Barnett", school: "Wisconsin", seed: 9},
+            { name: "Brandon Courtney", school: "Arizona State", seed: 10},
+            { name: "Patrick McKee", school: "Minnesota", seed: 11},
+            { name: "Michael DeAugustino", school: "Northwestern", seed: 12},
+            { name: "Dean Peterson", school: "Rutgers", seed: 13},
+            { name: "Noah Surtin", school: "Missouri", seed: 14},
+            { name: "Brett Ungar", school: "Cornell", seed: 15},
+            { name: "Jack Medley", school: "Michigan", seed: 16},
+            { name: "Ethan Berginc", school: "Army", seed: 17},
+            { name: "Ryan Miller", school: "Penn", seed: 18},
+            { name: "Braxton Brown", school: "Maryland", seed: 19},
+            { name: "Jarrett Trombley", school: "NC State", seed: 20},
+            { name: "Jore Volk", school: "Wyoming", seed: 21},
+            { name: "Diego Sotelo", school: "Harvard", seed: 22},
+            { name: "Jake Ferri", school: "Kent State", seed: 23},
+            { name: "Nick Babin", school: "Columbia", seed: 24},
+            { name: "Joey Prata", school: "Oklahoma", seed: 25},
+            { name: "Jack Wagner", school: "Michigan", seed: 26},
+            { name: "Eddie Ventresca", school: "Virginia Tech", seed: 27},
+            { name: "Killian Cardinale", school: "West Virginia", seed: 28},
+            { name: "Nico Provo", school: "Stanford", seed: 29},
+            { name: "Antonio Lorenzo", school: "Cal Poly", seed: 30},
+            { name: "Reece Witcraft", school: "Oklahoma State", seed: 31},
+            { name: "Tanner Jordan", school: "South Dakota State", seed: 32},
+            { name: "Tucker Owens", school: "Air Force", seed: 33}
+        ]).then(() => getWeightClass(db, "125 lbs"))
+        .then(participants => {
+            console.log(participants.find(participant => participant.seed === 19));
+            console.log(participants); // logs the participants data first. 
+            participants.forEach(participant => {
+                try {
+                    const nameParts = participant.name.split(' ');
+                    const firstName = toTitleCase(nameParts[0]);
+                    const lastName = nameParts[1].toUpperCase();
+
+                    console.log(`firstname${participant.seed}`);
+                    document.getElementById(`firstname${participant.seed}`).textContent = firstName;
+                    console.log(`lastname${participant.seed}`);
+                    document.getElementById(`lastname${participant.seed}`).textContent = lastName;
+                    console.log(`school${participant.seed}`);
+                    document.getElementById(`school${participant.seed}`).textContent = toTitleCase(participant.school);
+                    console.log(`seed${participant.seed}`);
+                    document.getElementById(`seed${participant.seed}`).textContent = participant.seed;
+                } catch (error) {
+            console.error(`Error processing participant with seed ${participant.seed}:`, error);
+        }
+            });
+        })
+        .catch(error => console.error("Error processing data:", error));
+
+        window.selectParticipant = function(element) {
+            // Get the match, next match IDs, and replace slot from the element's data attributes
+            var matchId = element.getAttribute('data-match');
+            var nextMatchId = element.getAttribute('data-next-match');
+            
+            var nextMatchLoserId = element.getAttribute('data-next-match-loser');
+            var replaceSlotLoser = element.getAttribute('data-replace-slot-loser');
+
+            // Get the name, school, and seed of the selected participant
+            var seed = element.getElementsByClassName('seed')[0].innerText;
+            var firstName = element.getElementsByClassName('firstName')[0].innerText;
+            var lastName = element.getElementsByClassName('lastName')[0].innerText;
+            var school = element.getElementsByClassName('school')[0].innerText;
+
+            // Handle the case where the next match is the predictedChampion separately
+            if (nextMatchId === 'predictedChampion') {
+                var championElem = document.getElementById(nextMatchId);
+                championElem.getElementsByClassName('seed')[0].innerText = seed;
+                championElem.getElementsByClassName('firstName')[0].innerText = firstName;
+                championElem.getElementsByClassName('lastName')[0].innerText = lastName;
+                championElem.getElementsByClassName('school')[0].innerText = school;
+            } else {
+                // Get the replace slot from the element's data attributes
+                var replaceSlot = element.getAttribute('data-replace-slot');
+
+                // Get the next match element
+                var nextMatchElem = document.getElementById(nextMatchId);
+
+                // Update the participant in the next match with the selected participant's data
+                // Use replaceSlot to determine which participant to replace
+                var participantElem = nextMatchElem.querySelector(`.participant[data-slot="${replaceSlot}"]`);
+                participantElem.getElementsByClassName('seed')[0].innerText = seed;
+                participantElem.getElementsByClassName('firstName')[0].innerText = firstName;
+                participantElem.getElementsByClassName('lastName')[0].innerText = lastName;
+                participantElem.getElementsByClassName('school')[0].innerText = school;
+            }
+            // Move the unselected participant to the consolation bracket
+            if (nextMatchLoserId) {
+                // Get the match element that contains this participant
+                var matchElem = document.getElementById(matchId);
+
+                // Get the other participant in this match
+                var otherParticipantElem = matchElem.querySelector(`.participant:not([data-slot="${element.getAttribute('data-slot')}"])`);
+
+                // If the replace slot for the loser exists
+                if (replaceSlotLoser) {
+                    // Get the next match for the loser element
+                    var nextMatchLoserElem = document.getElementById(nextMatchLoserId);
+
+                    // Update the participant in the next match for the loser with the other participant's data
+                    // Use replaceSlotLoser to determine which participant to replace
+                    var participantLoserElem = nextMatchLoserElem.querySelector(`.participant[data-slot="${replaceSlotLoser}"]`);
+                    participantLoserElem.getElementsByClassName('seed')[0].innerText = otherParticipantElem.getElementsByClassName('seed')[0].innerText;
+                    participantLoserElem.getElementsByClassName('firstName')[0].innerText = otherParticipantElem.getElementsByClassName('firstName')[0].innerText;
+                    participantLoserElem.getElementsByClassName('lastName')[0].innerText = otherParticipantElem.getElementsByClassName('lastName')[0].innerText;
+                    participantLoserElem.getElementsByClassName('school')[0].innerText = otherParticipantElem.getElementsByClassName('school')[0].innerText;
+                }
+            }
+        };
+
+        
+        
+        $('.matchup').click(function() {
+            $('html, body').animate({
+                scrollTop: $(this).offset().top - ($(window).height() / 2) + $(this).height() / 2 + ($(window).height() * 0.2)
+            }, 500);
+        });
+
+
+        $('.round').click(function() {
+            $('html, body').animate({
+                scrollLeft: $(this).offset().left - ($(window).width() / 2) + $(this).width() / 2+ ($(window).width() * 0.2)
+            }, 500);
+        });
+
+
+        function resetAdvancements(element) {
+            // find all participant divs that have data-prev-match attribute equal to this element's data-match attribute
+            var advancedParticipants = document.querySelectorAll(`[data-prev-match="${element.dataset.match}"]`);
+            for (let i = 0; i < advancedParticipants.length; i++) {
+                var participant = advancedParticipants[i];
+                // clear the data of the advanced participant
+                participant.querySelector('.seed').innerText = '';
+                participant.querySelector('.firstName').innerText = '';
+                participant.querySelector('.lastName').innerText = '';
+                participant.querySelector('.school').innerText = '';
+                // continue clearing the advancements of the next rounds
+                resetAdvancements(participant);
+            }
+        }
+
+        function selectParticipant(element) {
+            // before doing anything, clear the advancements of this participant
+            resetAdvancements(element);
+
+            // then continue with the logic to advance this participant...
+        }
+
+    </script>
+</body>
+</html>
