@@ -118,7 +118,6 @@
 
         }
 
-
         .matchup::after { /*Horizontal connector line that extends to the right of each matchup (connects to vertical line)*/
             content: '';
             position: relative;
@@ -129,11 +128,9 @@
             /* adjust this value according to your layout */
             height: 1px;
             background: #989898;
-            z-index: 2;
+            z-index: 1;
             animation: fadeIn .6s ease-in;
-
         }
-
 
         .round-6 .matchup::after,
         .championship .matchup::after {
@@ -141,7 +138,6 @@
             animation: fadeIn .6s ease-in;
         }
 
-    
         .participant {
             color: #000000ed;
             font-size: 125%;
@@ -1283,8 +1279,14 @@
             // Get the match, next match IDs, and replace slot from the element's data attributes
             var matchId = element.getAttribute('data-match');
             var nextMatchId = element.getAttribute('data-next-match');
-            
             var nextMatchLoserId = element.getAttribute('data-next-match-loser');
+
+
+            console.log(nextMatchLoserId);  // Logs the value of nextMatchLoserId to the console
+            console.log(element);
+            var nextMatchLoserElem = document.getElementById(nextMatchLoserId);
+            console.log(nextMatchLoserElem);  // Logs the value of nextMatchLoserElem to the console
+
             var replaceSlotLoser = element.getAttribute('data-replace-slot-loser');
 
             // Get the name, school, and seed of the selected participant
