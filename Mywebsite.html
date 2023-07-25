@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to</title>
+    <style>
+        body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        
+        .title {
+            position: absolute;
+            left: 30vw;
+            top: 30vh;
+            font-size: 5em;
+        }
+
+        .bordered-text {
+            position: absolute;
+            display: flex;
+            left: 30vw;
+            top: 45vh;
+            font-size: 5em;
+            box-sizing: border-box;
+            border: 5px solid #000000; /* Corrected this line */
+        }
+
+        .bordered-text div { /* new style for the paragraph within .bordered-text */
+            border: 5px solid #000000;
+            padding: 5px;
+        }
+
+        .bordered-text div:not(:last-child) { /* added this new style */
+            border-right: none;
+        }
+
+        .text-input {
+            position:absolute;
+            top: 70vh;
+            left: 35vw;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="title"> Welcome to</div>
+    <div class="bordered-text">
+        <div>My</div><div>Website</div>
+    </div>
+
+    <div class="text-input">
+        <input placeholder="Enter text...">
+    </div>
+</body>
+</html>

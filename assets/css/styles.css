@@ -1,0 +1,800 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-image: url("/assets/images/backgroundimages/ncaastadium.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top:0;
+    width: 100%;
+}
+
+/* Header styling */
+.header {
+    position: fixed !important;
+    box-sizing: border-box;
+    justify-content: space-between;
+    display:block;
+    background: transparent;
+    color: transparent;
+    padding: 2vw;
+    margin-right: 0px;
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+    top:0vw;
+}
+
+.innerheader {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.logocontainer {
+    height: 100%;
+    display: table;
+    float: left;
+}
+
+.logocontainer h1 {
+    color: white;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    font-family: "Montserrat";
+    font-size: 32px;
+    font-weight: 50;
+    letter-spacing: .5vw;
+    
+}
+
+.logocontainer h1 span {
+    font-weight: 800;
+    color: #ffffff;
+}
+
+
+.navigation {
+    float: right;
+    height: 100%;
+}
+
+.navigation a{
+    height: 100%;
+    display: table;
+    float: left;
+    padding: 0px 20px;
+}
+
+.navigation a li {
+    display: table-cell;
+    height: 100%;
+    color: white;
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+/* End of Header Styling */
+/* Footer Styling */
+
+
+
+/* End of footer styling */
+
+
+ /* SPECIFIES THE NATURE OF THE FADE IN TRANSITION FOR ELEMENTS */
+ @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    background-color: transparent;
+    padding-right: 10vw;
+    font-family: 'Montserrat', sans-serif;
+    height: 300vw;
+}
+
+.bracketmenu {
+    text-decoration: none;
+    font-family: 'Montserrat';
+    position: fixed;
+    box-sizing: border-box;
+    justify-content: space-between;
+    display:flex;
+    align-items: center;
+    background-color: transparent;
+    color: #333;
+    padding: 25px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 10vh;
+}
+
+.bracketmenubutton {
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-size: 2.5vh;
+    letter-spacing: .1vw;
+    width: 20vw;
+    height: 7vh;
+    background: transparent;
+    background-color: #333;
+    color: rgba(255, 255, 255, 0.655);
+    border-color: none;
+    opacity: 80%;
+}
+
+.bracketmenubutton:hover {
+    opacity: 100%;
+    transform: scale(1.05); /* The button will grow to 110% of its original size */
+}
+
+#zoom-out-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5vw;
+}
+
+#zoom-out-button img{
+    width: 2.5vw;
+    height: auto;
+}
+
+
+
+
+#zoom-out-button:hover {
+    opacity: 100%;
+}
+
+#zoom-out-button:hover {
+    transform: scale(1.1); /* The button will grow to 110% of its original size */
+}
+
+#zoom-container {
+    transition: transform 0.3s ease-out;
+    /* Your other CSS rules... */
+}
+
+
+/* CREATES AND SPECIFIES THE POSITION OF THE ENTIRE BRACKET IN RELATION TO THE CONTAINER */
+
+/* CREATES AND SPECIFIES THE PARAMETERS FOR THE CONTAINER IN RELATION TO THE BODY */
+.container {
+    overflow-x: visible;
+    position: absolute;
+    
+}
+
+.bracket {
+    position: absolute;
+    top: 4vh;
+    margin-left: 0vw;
+    margin-bottom: 0vw;
+    margin-right: 0vw;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(25vw, 1fr));
+    width:550vw;
+    height: 340vw;
+    box-sizing: border-box;
+    background-color: transparent; /* The color of the file folder */
+    padding: 3.5vw; /* Some padding around the content of the folder */
+    grid-auto-flow: column; /* This will align your grid items (rounds) in a row */
+    overflow-x: hidden; /* This will allow horizontal scrolling if the grid is wider than the viewport */
+    grid-gap: 0vw; /* Modify this value to adjust the gap between grid cells (rounds) */
+    opacity: 100%;
+    left:0vw;
+}
+
+
+
+
+
+
+
+.bracket::before:hover {
+    color: #f40f0f;
+}
+
+
+/* SPECIFIES THE POSITION OF EACH ROUND IN RELATION TO OTHER ROUNDS AND IN RELATION TO THE BRACKET */
+.round {
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    transition: border-color 0.1s ease-in-out; /* This will animate the color change */
+    width: 70vw;
+}
+
+
+
+
+
+.round:last-child {
+    margin-right: 0px; /* Adjust this value according to your needs */
+}
+
+.matchup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    width:55vw; 
+    min-width:50vw;            
+    height: 12vw;
+    border-radius: 1px;
+    background-color: #ffffff9a;
+    box-sizing: border-box;
+    z-index: 1;
+    margin-left: 5vw;
+}
+
+
+
+
+
+
+/*Places a match and round label just above each matchup*/
+.match-label {
+    color: #ffffff;
+    position: absolute;
+    font-style: italic;
+    font-size: 2vw;
+    top: -2.5vw; 
+}
+
+
+
+
+
+
+.matchup::after { /*Horizontal connector line that extends to the right of each matchup (connects to vertical line)*/
+    content: '';
+    position: absolute;
+    width: 82.2vw; /* changed from 111vw to 100% */
+    height: 1px;
+    top: 6vw;
+    background: #ffffff;
+    animation: fadeIn .6s ease-in;
+    z-index: 0;
+}
+
+.first-matchup::after {
+    width: 67.55vw;  /* or whatever width you need */
+}
+
+
+.matchup.no-line::after {
+    content: none;
+}
+
+
+
+
+.round-6 .matchup::after,
+.championship .matchup::after {
+    content: none;
+    animation: fadeIn .6s ease-in;
+}
+
+.participant {
+    color: #000000ad;
+    text-transform: uppercase;
+    padding: 0px 0px; /* adjust as per your needs */
+    font-family: 'Montserrat';
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content:flex-start;
+    flex-direction: row;
+    animation: fadeIn 1s ease-in;
+    min-height: 50%;
+    width: 100%;
+    left: 12vw;
+}
+
+.participant .name {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: 2vw;
+    letter-spacing: 0em;
+}
+
+.participant .name div:first-child {
+    margin-right: 5px;
+}
+
+.participant:hover,
+.participant:active {
+    background-color: #e1e1e1;
+    /* replace with your desired color */
+    cursor: default;
+}
+
+.participant.checked::after {
+    content: "✔";
+    font-size: 3vw;
+    color: #1fad36;
+    /* Add any additional styling needed */
+}
+
+
+.seed {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 2vw;
+    color: #333333;
+    margin-right: 20px;
+    margin-left: 2vw;
+    width: auto; /* changed from 60px to auto */
+    height: auto; /* changed from 50px to auto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn .6s ease-in;
+    letter-spacing: .1em;
+}
+
+
+
+
+
+.name {
+    text-transform: capitalize;
+}
+
+.name .last {
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+
+
+
+.school {
+    text-transform: capitalize;
+    font-family: 'Montserrat';
+}
+
+#participants-container > div {  /* Style for each participant box */
+    margin-bottom: 10px; /* Add some margin below each participant for visual separation */
+    padding: 10px; /* Add some padding within each participant for visual separation */
+}
+
+.seed, .name, .school {
+    margin-right: 1vw;  /* Adjust as per your needs */
+}
+
+
+.participant .school { /*Customizing the text of the School Name*/
+    color: #b50c0c;
+    animation: fadeIn .6s ease-in;
+    letter-spacing: .05vw;
+    text-transform: capitalize;
+    font-style: italic;
+    font-size:2vw;
+}
+
+
+
+
+
+
+/*This is adding a margin for the "Winner of Prelim" label, but then removing it when the participant clicked is populated*/
+#winnerOfPrelim {
+    margin-left: 25px;
+}
+.no-left-margin {
+    margin-left: 0px !important;
+}
+
+.participant-details {
+    /* style as needed, position relative */
+    position: relative;
+    z-index: 2;
+    /* ...other styles... */
+}
+
+.vertical-line {
+    /* make this position relative too */
+    position: absolute;
+    /* it might be helpful to give this a height so you can see what's going on */
+    height: 150px;
+    z-index: 0;
+}
+
+.vertical-line::before {
+    /* your original styles for the vertical line */
+    content: "";
+    position: absolute;
+    width: 1px;
+    background-color: #ffffff;
+    height: 100%;  /* this will make it the full height of .vertical-line */
+    animation: fadeIn 1s ease-in;
+}
+
+.roundof16-first-line {
+    top: 16vw;
+    left: 19.6vw;
+    height: 4vw;
+}
+
+.roundof16-first-line2 {
+    top: 32.0vw;
+    left: 19.6vw;
+    height: 4.075vw;
+}
+
+
+.roundof16-second-line {
+    top: 56vw;
+    left: 19.6vw;
+    height: 4vw;
+}
+
+.roundof16-second-line2 {
+    top: 72vw;
+    left: 19.6vw;
+    height: 4.05vw;
+}
+
+.roundof16-third-line {
+    top: 96vw;
+    left: 19.6vw;
+    height: 4vw;
+}
+
+.roundof16-third-line2 {
+    top: 112vw;
+    left: 19.6vw;
+    height: 4.075vw;
+}
+
+
+.roundof16-fourth-line {
+    top: 136vw;
+    left: 19.6vw;
+    height: 4vw;
+}
+
+.roundof16-fourth-line2 {
+    top: 152vw;
+    left: 19.6vw;
+    height: 4.05vw;
+}
+
+
+.roundof16-fifth-line {
+    top: 176vw;
+    left: 19.6vw;
+    height: 4vw;
+}
+
+.roundof16-fifth-line2 {
+    top: 192vw;
+    left: 19.6vw;
+    height: 4.05vw;
+}
+
+
+.roundof16-sixth-line {
+    top: 216vw;
+    left: 19.6vw;
+    height: 4vw;
+}
+
+.roundof16-sixth-line2 {
+    top: 232vw;
+    left: 19.6vw;
+    height: 4.075vw;
+}
+
+
+.roundof16-seventh-line {
+    top: 256vw;
+    left: 19.6vw;
+    height: 4vw;
+}
+
+.roundof16-seventh-line2 {
+    top: 272vw;
+    left: 19.6vw;
+    height: 4.05vw;
+}
+
+
+.roundof16-eighth-line {
+    top: 296vw;
+    left: 19.6vw;
+    height: 4vw;
+}
+
+
+.round-4-line::before {
+    height: 100%; /* this will make the pseudo-element the full height of .round-4-line */
+}
+
+.round-4-first-line {
+    top: 26vw;
+    left: 19.6vw;
+    height: 40vw;
+}
+
+.round-4-second-line {
+    top: 106vw;
+    left: 19.6vw;
+    height: 40vw;
+}
+
+
+.round-4-third-line {
+    top: 186vw;
+    left: 19.6vw;
+    height: 40vw;
+}
+
+.round-4-fourth-line {
+    top: 266vw;
+    left: 19.6vw;
+    height: 40vw;
+}
+
+.round-5-line::before {
+    height: 100%; /* this will make the pseudo-element the full height of .round-4-line */
+}
+
+.round-5-first-line {
+    top: 46vw;
+    left: 19.6vw;
+    height: 80.05vw;
+}
+
+
+
+.round-5-second-line {
+    top: 206vw;
+    left: 19.6vw;
+    height: 80.075vw;
+}
+
+
+
+.round-6-line::before {
+    height: 100%; /* this will make the pseudo-element the full height of .round-4-line */
+}
+
+.round-6-first-line {
+    top: 86vw;
+    left: 19.6vw;
+    height: 160vw;
+}
+
+
+
+.champion-section {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 70vw;
+    z-index: 1;
+    top: 5vw;
+}
+
+.champion-section h2 {
+    color: #333;
+    font-size: 5vw;
+    height:25vw;
+}
+
+#predictedChampion {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    padding: 1vh;
+    height: 3vw;
+    left: 1.5vw;
+    top: 12vw;
+    border: 1vw solid #ddd;
+    border-radius: 10px;
+    width: 65vw;
+    align-items: center;
+}
+
+#championSeed {
+    color: #999;
+    font-size: 5vw;
+}
+
+#championFirstName, #championLastName, #championSchool {
+    color: #333;
+    font-size: 5vw;
+    margin-top: 0px;
+}
+
+button:active {
+    transform: scale(0.90);  /* shrinks the button to 95% of its original size */
+    transition: transform 0.1s;  /* specifies the duration of the animation */
+}
+
+.matchup-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Match navigation buttons */
+.next-match {
+    position: absolute;
+    margin-left: 1vw;
+    background-image: url('/static/images/arrows-6/next.png');
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 6vh;
+    width: 4vw;
+    z-index: 1;
+    border-color: #e6e6e6;
+    position: relative;
+    z-index: -1;
+}
+
+
+
+.prev-match {
+    position: absolute;
+    margin-right: 1vw;
+    background-image: url('/static/images/arrows-6/previous.png');
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 6svh;
+    width: 4vw;
+    z-index: 1;
+    border-color: #e6e6e6;
+    z-index: -1;
+}
+
+.match-up {
+    /* Styles for the 'up' button between match 25 and 26 in the quarterfinals */
+    background-image: url('/static/images/arrows-6/up.png');
+    background-size: 15%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    height: 7vh;
+    width: 10vw;
+    box-shadow: 0px 0px .5px rgba(0, 0, 0, 0.473);
+    z-index: 1;
+    border-color: #e6e6e6;
+    z-index: -1;
+    /* Add your other CSS properties here */
+}
+
+.match-down {
+    /* Styles for the 'down' button between match 25 and 26 in the quarterfinals */
+    background-image: url('/static/images/arrows-6/down.png');
+    background-size: 15%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    height: 7vh;
+    width: 10vw;
+    box-shadow: 0px 0px .5px rgba(0, 0, 0, 0.473);
+    z-index: 1;
+    border-color: #e6e6e6;
+    z-index: -1;
+    /* Add your other CSS properties here */
+}
+
+@media (max-width: 600px) {
+    .next-match, 
+    .prev-match,
+    .match-up, 
+    .match-down {
+        z-index: -1;
+    }
+}
+
+
+.next-match:hover, .prev-match:hover, .quarterfinals-prev:hover, .match-down:hover, .match-up:hover {
+    background-color: #c4c4c4; 
+    color: white; 
+}
+
+.participant.checked {
+    font-weight:900;
+}
+
+.champion {
+    background-color: rgb(255, 255, 255);
+}
+
+.click-animation {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    animation: clickAnimation 0.5s ease-out;
+    pointer-events: none; 
+}
+
+.bracket:before:hover {
+    color: #f40f0f;
+}
+
+
+@keyframes clickAnimation {
+    from {
+        opacity: 0.5;
+        transform: scale(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(50px);
+    }
+}
+
+/* Consolation Bracket matchup vertical lines to connect the bracket together */
+
+.consoround4match18line {
+    top: 19vw;
+    left: 19.6vw;
+    height: 20vw;
+}
+
+.consoround4match19line {
+    top: 59vw;
+    left: 19.6vw;
+    height: 20vw;
+}
+
+.consoround4match20line {
+    top: 99vw;
+    left: 19.6vw;
+    height: 20vw;
+}
+
+.consoround4match21line {
+    top: 139vw;
+    left: 19.6vw;
+    height: 20vw;
+}
+
+.consoround4match26line {
+    top: 32vw;
+    left: 19.6vw;
+    height: 40vw;
+}  
+
+.consoround4match27line {
+    top: 112vw;
+    left: 19.6vw;
+    height: 40vw;
+}
+
+.consoround4match30line {
+    top: 55vw;
+    left: 19.6vw;
+    height: 80.075vw;
+}
