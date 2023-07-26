@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='/static/assets/bracketlogowhite.png' type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Orbit&display=swap" rel="stylesheet">
+    <title>NCAA Wrestling Championships Bracket Challenge</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <div class="header">
+                <div class="innerheader">
+                    <a class="logocontainer" href="/templates/TOURNAMENTS/NCAA/NCAACHAMPIONSHIPS/2024/125LBS.html" style="text-decoration: none;">
+                        <h1>MAT<span>BRACKETOLOGY</span></h1>
+                    </a>
+                    <ul class="navigation">
+                        <a><li>Home</li></a>
+                        <a><li>Tournaments</li></a>
+                        <a><li>Brackets</li></a>
+                        <a><li>Login</li></a>
+                    </ul>
+                </div>
+            </div>
+            <div class="bracketmenu">
+                <button id="zoom-out-button" class="bracketmenubutton">
+                    <img src="/assets/images/bracket1.png">
+                </button>
+                <button id="championshipButton" class="bracketmenubutton">Championship</button>
+                <button id="consolationButton" class="bracketmenubutton">Consolation</button>
+                <button id="fifthseventhButton" class="bracketmenubutton">5th & 7th</button>
+                <button id="allAmericansButton" class="bracketmenubutton">All Americans</button>
+            </div>
+            <div id="zoom-container"> <!-- Everything inside this container is affected by the zoom in/out button -->
+                <div class="container" id="bracketholder"> <!-- This is the container to hold the brackets -->
+
+                    <div class="bracket" id="championshipbracket"> <!-- This container holds the championship bracket -->
+
+                        <div class="round" id="prelimround"> <!--Start of the Prelim Round DIV -->
+
+                            <!-- Prelim Matchup, Prelim Round -->
+                            <div class="matchup-container">
+                                <div id="Match0" class="matchup first-matchup" style="top: 13vw;">
+                                    <div class="match-label">Match 0</div>
+                                    <div class="match-label" style="right:0;">Prelim Round</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="0" data-next-match="Match1" data-slot="1" data-replace-slot="2" data-next-match-loser="consolationmatch1" data-replace-slot-loser="1">
+                                        <div class="seed" id="seed32"></div>   
+                                        <div class="name">
+                                            <div class="firstName" id="firstname32"></div> 
+                                            <div class="lastName" id="lastname32"></div>
+                                        </div>
+                                        <div class="school" id="school32"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="0" data-next-match="Match1" data-slot="2" data-replace-slot="2" data-next-match-loser="consolationmatch1" data-replace-slot-loser="1">
+                                        <div class="seed" id="seed33"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname33"></div> 
+                                            <div class="lastName" id="lastname33"></div>
+                                        </div>
+                                        <div class="school" id="school33"></div> 
+                                    </div>
+                                </div>
+                                <div class="connector"></div> <!-- Add the connector line here -->
+                            </div><!-- End of Matchup Container-->
+
+
+                        </div> <!--End of Prelim Round -->
+                        <div class="round" id="roundof32"> <!--Start of Round of 32 -->
+
+
+                            <!-- Match 1, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match1" class="matchup" style="top:10vw;" id="Match1"> 
+                                    <div class="match-label">Match 1</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="1" data-next-match="Match17" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname1"></div> 
+                                            <div class="lastName" id="lastname1"></div>
+                                        </div>
+                                        <div class="school" id="school1"></div> 
+                                    </div>
+                                    <div class="participant" id="ParticipantOfPrelim" onclick="selectParticipant(this)" data-match="1" data-next-match="Match17" data-prev-match="0" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="SeedOfPrelim"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="FirstnameOfPrelim"></div> 
+                                            <div class="lastName" id="LastnameOfPrelim"></div>
+                                        </div>
+                                        <div class="school" id="SchoolOfPrelim"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 2, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match2" class="matchup" style="top:30vw">
+                                    <div class="match-label">Match 2</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="2" data-next-match="Match17" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed17"></div>   
+                                        <div class="name">
+                                            <div class="firstName" id="firstname17"></div> 
+                                            <div class="lastName" id="lastname17"></div>
+                                        </div>
+                                        <div class="school" id="school17"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="2" data-next-match="Match17" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed16"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname16"></div> 
+                                            <div class="lastName" id="lastname16"></div>
+                                        </div>
+                                        <div class="school" id="school16"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 3, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match3" class="matchup" style="top:50vw;">
+                                    <div class="match-label">Match 3</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="3" data-next-match="Match18" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed9"></div>   
+                                        <div class="name">
+                                            <div class="firstName" id="firstname9"></div> 
+                                            <div class="lastName" id="lastname9"></div>
+                                        </div>
+                                        <div class="school" id="school9"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="3" data-next-match="Match18" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed24"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname24"></div> 
+                                            <div class="lastName" id="lastname24"></div>
+                                        </div>
+                                        <div class="school" id="school24"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 4, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match4" class="matchup" style="top:70vw;">
+                                    <div class="match-label">Match 4</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="4" data-next-match="Match18" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed25"></div>   
+                                        <div class="name">
+                                            <div class="firstName" id="firstname25"></div> 
+                                            <div class="lastName" id="lastname25"></div>
+                                        </div>
+                                        <div class="school" id="school25"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="4" data-next-match="Match18" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed8"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname8"></div> 
+                                            <div class="lastName" id="lastname8"></div>
+                                        </div>
+                                        <div class="school" id="school8"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 5, Round of 32 -->
+                            <div class="matchup-container">
+                                <div class="matchup" style="top:90vw;" id="Match5">
+                                    <div class="match-label">Match 5</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="5" data-next-match="Match19" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed5"></div>   
+                                        <div class="name">
+                                            <div class="firstName" id="firstname5"></div> 
+                                            <div class="lastName" id="lastname5"></div>
+                                        </div>
+                                        <div class="school" id="school5"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="5" data-next-match="Match19" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed28"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname28"></div> 
+                                            <div class="lastName" id="lastname28"></div>
+                                        </div>
+                                        <div class="school" id="school28"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 6, Round of 32 -->
+                            <div class="matchup-container">
+                                <div class="matchup" style="top:110vw;" id="Match6">
+                                    <div class="match-label">Match 6</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="6" data-next-match="Match19" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed21"></div>   
+                                        <div class="name">
+                                            <div class="firstName" id="firstname21"></div> 
+                                            <div class="lastName" id="lastname21"></div>
+                                        </div>
+                                        <div class="school" id="school21"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="6" data-next-match="Match19" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed12"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname12"></div> 
+                                            <div class="lastName" id="lastname12"></div>
+                                        </div>
+                                        <div class="school" id="school12"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 7, Round of 32 -->
+                            <div class="matchup-container">
+                                <div class="matchup" style="top:130vw;" id="Match7">
+                                    <div class="match-label">Match 7</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="7" data-next-match="Match20" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed13"></div>   
+                                        <div class="name">
+                                            <div class="firstName" id="firstname13"></div> 
+                                            <div class="lastName" id="lastname13"></div>
+                                        </div>
+                                        <div class="school" id="school13"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="7" data-next-match="Match20" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed20"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname20"></div> 
+                                            <div class="lastName" id="lastname20"></div>
+                                        </div>
+                                        <div class="school" id="school20"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 8, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match8" class="matchup" style="top:150vw;">
+                                    <div class="match-label" >Match 8</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="8" data-next-match="Match20" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed29"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname29"></div> 
+                                            <div class="lastName" id="lastname29"></div>
+                                        </div>
+                                        <div class="school" id="school29"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="8" data-next-match="Match20" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed4"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname4"></div> 
+                                            <div class="lastName" id="lastname4"></div>
+                                        </div>
+                                        <div class="school" id="school4"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 9, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match9" class="matchup" style="top:170vw;">
+                                    <div class="match-label">Match 9</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="9" data-next-match="Match21" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed3"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname3"></div> 
+                                            <div class="lastName" id="lastname3"></div>
+                                        </div>
+                                        <div class="school" id="school3"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="9" data-next-match="Match21" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed30"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname30"></div> 
+                                            <div class="lastName" id="lastname30"></div>
+                                        </div>
+                                        <div class="school" id="school30"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 10, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match10" class="matchup" style="top:190vw;">
+                                    <div class="match-label">Match 10</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="10" data-next-match="Match21" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed19"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname19"></div> 
+                                            <div class="lastName" id="lastname19"></div>
+                                        </div>
+                                        <div class="school" id="school19"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="10" data-next-match="Match21" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed14"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname14"></div> 
+                                            <div class="lastName" id="lastname14"></div>
+                                        </div>
+                                        <div class="school" id="school14"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 11, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match11" class="matchup" style="top:210vw;">
+                                    <div class="match-label">Match 11</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="11" data-next-match="Match22" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed11"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname11"></div> 
+                                            <div class="lastName" id="lastname11"></div>
+                                        </div>
+                                        <div class="school" id="school11"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="11" data-next-match="Match22" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed22"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname22"></div> 
+                                            <div class="lastName" id="lastname22"></div>
+                                        </div>
+                                        <div class="school" id="school22"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 12, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match12" class="matchup" style="top:230vw;">
+                                    <div class="match-label">Match 12</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="12" data-next-match="Match22" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed27"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname27"></div> 
+                                            <div class="lastName" id="lastname27"></div>
+                                        </div>
+                                        <div class="school" id="school27"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="12" data-next-match="Match22" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed6"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname6"></div> 
+                                            <div class="lastName" id="lastname6"></div>
+                                        </div>
+                                        <div class="school" id="school6"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 13, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match13" class="matchup" style="top:250vw;">
+                                    <div class="match-label">Match 13</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="13" data-next-match="Match23" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed7"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname7"></div> 
+                                            <div class="lastName" id="lastname7"></div>
+                                        </div>
+                                        <div class="school" id="school7"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="13" data-next-match="Match23" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed26"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname26"></div> 
+                                            <div class="lastName" id="lastname26"></div>
+                                        </div>
+                                        <div class="school" id="school26"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 14, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match14" class="matchup" style="top:270vw;">
+                                    <div class="match-label">Match 14</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="14" data-next-match="Match23" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed23"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname23"></div> 
+                                            <div class="lastName" id="lastname23"></div>
+                                        </div>
+                                        <div class="school" id="school23"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="14" data-next-match="Match23" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed10"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname10"></div> 
+                                            <div class="lastName" id="lastname10"></div>
+                                        </div>
+                                        <div class="school" id="school10"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 15, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match15" class="matchup" style="top:290vw;">
+                                    <div class="match-label">Match 15</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="15" data-next-match="Match24" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed15"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname15"></div> 
+                                            <div class="lastName" id="lastname15"></div>
+                                        </div>
+                                        <div class="school" id="school15"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="15" data-next-match="Match24" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed18"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname18"></div> 
+                                            <div class="lastName" id="lastname18"></div>
+                                        </div>
+                                        <div class="school" id="school18"></div> 
+                                    </div>                 
+                                </div>
+                            </div><!-- End of Matchup Container-->
+                            
+                            <!-- Match 16, Round of 32 -->
+                            <div class="matchup-container">
+                                <div id="Match16" class="matchup no-scroll-center" style="top:310vw;">
+                                    <div class="match-label">Match 16</div>
+                                    <div class="match-label" style="right:0;">Round of 32</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="16" data-next-match="Match24" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed31"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname31"></div> 
+                                            <div class="lastName" id="lastname31"></div>
+                                        </div>
+                                        <div class="school" id="school31"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="16" data-next-match="Match24" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname2"></div> 
+                                            <div class="lastName" id="lastname2"></div>
+                                        </div>
+                                        <div class="school" id="school2"></div> 
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+                            
+
+                        </div> <!-- End of Round of 32 DIV -->
+                        <div class="round" id="roundof16"> <!-- Start of Round of 16 -->
+
+
+                            <!-- Match 17, Round of 16 -->
+                            <div class="matchup-container">
+                                <div id="Match17" class="matchup" style="top: 20vw">
+                                    <div class="match-label" id="match17label">Match 17</div>
+                                    <div class="match-label" style="right:0;">Round of 16</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="17" data-next-match="Match25" data-prev-match="1" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed17-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname17-1"></div> 
+                                            <div class="lastName" id="lastname17-1"></div>
+                                        </div>
+                                        <div class="school" id="school17-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="17" data-next-match="Match25" data-prev-match="1" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed17-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname17-2"></div> 
+                                            <div class="lastName" id="lastname17-2"></div>
+                                        </div>
+                                        <div class="school" id="school17-2"></div> 
+                                    </div>
+                                </div>  
+                                <div class="vertical-line roundof16-first-line"></div>
+                                <div class="vertical-line roundof16-first-line2"></div>
+                            </div><!-- End of Matchup Container-->
+
+
+                            <!-- Match 18, Round of 16 -->
+                            <div class="matchup-container">
+                                <div id="Match18" class="matchup" style="top: 60vw;">
+                                    <div class="match-label" id="match18label">Match 18</div>
+                                    <div class="match-label" style="right:0;">Round of 16</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="18" data-next-match="Match25" data-prev-match="2" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed18-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname18-1"></div> 
+                                            <div class="lastName" id="lastname18-1"></div>
+                                        </div>
+                                        <div class="school" id="school18-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="18" data-next-match="Match25" data-prev-match="2" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed18-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname18-2"></div> 
+                                            <div class="lastName" id="lastname18-2"></div>
+                                        </div>
+                                        <div class="school" id="school18-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line roundof16-second-line"></div>
+                                <div class="vertical-line roundof16-second-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+
+
+                            <!-- Match 19, Round of 16 -->
+                            <div class="matchup-container">
+                                <div id="Match19" class="matchup" style="top: 100vw;">
+                                    <div class="match-label" id="match19label">Match 19</div>
+                                    <div class="match-label" style="right:0;">Round of 16</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="19" data-next-match="Match26" data-prev-match="3" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed19-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname19-1"></div> 
+                                            <div class="lastName" id="lastname19-1"></div>
+                                        </div>
+                                        <div class="school" id="school19-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="19" data-next-match="Match26" data-prev-match="3" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed19-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname19-2"></div> 
+                                            <div class="lastName" id="lastname19-2"></div>
+                                        </div>
+                                        <div class="school" id="school19-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line roundof16-third-line"></div>
+                                <div class="vertical-line roundof16-third-line2"></div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 20, Round of 16 -->
+                            <div class="matchup-container">
+                                <div id="Match20" class="matchup" style="top: 140vw;">
+                                    <div class="match-label" id="match20label">Match 20</div>
+                                    <div class="match-label" style="right:0;">Round of 16</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="20" data-next-match="Match26" data-prev-match="4" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed20-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname20-1"></div> 
+                                            <div class="lastName" id="lastname20-1"></div>
+                                        </div>
+                                        <div class="school" id="school20-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="20" data-next-match="Match26" data-prev-match="4" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed20-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname20-2"></div> 
+                                            <div class="lastName" id="lastname20-2"></div>
+                                        </div>
+                                        <div class="school" id="school20-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line roundof16-fourth-line"></div>
+                                <div class="vertical-line roundof16-fourth-line2"></div>
+
+                            </div> <!-- End of Matchup Container-->
+
+
+                            <!-- Match 21, Round of 16 -->
+                            <div class="matchup-container">
+                                <div id="Match21" class="matchup" style="top: 180vw;">
+                                    <div class="match-label" id="match21label">Match 21</div>
+                                    <div class="match-label" style="right:0;">Round of 16</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="21" data-next-match="Match27" data-prev-match="5" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed21-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname21-1"></div> 
+                                            <div class="lastName" id="lastname21-1"></div>
+                                        </div>
+                                        <div class="school" id="school21-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="21" data-next-match="Match27" data-prev-match="5" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed21-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname21-2"></div> 
+                                            <div class="lastName" id="lastname21-2"></div>
+                                        </div>
+                                        <div class="school" id="school21-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line roundof16-fifth-line"></div>
+                                <div class="vertical-line roundof16-fifth-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 22, Round of 16 -->
+                            <div class="matchup-container">
+                                <div id="Match22" class="matchup" style="top: 220vw;">
+                                    <div class="match-label" id="match22label">Match 22</div>
+                                    <div class="match-label" style="right:0;">Round of 16</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="22" data-next-match="Match27" data-prev-match="6" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed22-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname22-1"></div> 
+                                            <div class="lastName" id="lastname22-1"></div>
+                                        </div>
+                                        <div class="school" id="school22-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="22" data-next-match="Match27" data-prev-match="6" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed22-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname22-2"></div> 
+                                            <div class="lastName" id="lastname22-2"></div>
+                                        </div>
+                                        <div class="school" id="school22-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line roundof16-sixth-line"></div>
+                                <div class="vertical-line roundof16-sixth-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+
+                            <!-- Match 23, Round of 16 -->
+                            <div class="matchup-container">
+                                <div id="Match23" class="matchup" style="top: 260vw;">
+                                    <div class="match-label" id="match23label">Match 23</div>
+                                    <div class="match-label" style="right:0;">Round of 16</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="23" data-next-match="Match28" data-prev-match="7" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed23-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname23-1"></div> 
+                                            <div class="lastName" id="lastname23-1"></div>
+                                        </div>
+                                        <div class="school" id="school23-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="23" data-next-match="Match28" data-prev-match="7" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed23-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname23-2"></div> 
+                                            <div class="lastName" id="lastname23-2"></div>
+                                        </div>
+                                        <div class="school" id="school23-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line roundof16-seventh-line"></div>
+                                <div class="vertical-line roundof16-seventh-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 24, Round of 16 -->
+                            <div class="matchup-container">
+                                <div id="Match24" class="matchup no-scroll-center" style="top: 300vw;">
+                                    <div class="match-label" id="match24label">Match 24</div>
+                                    <div class="match-label" style="right:0;">Round of 16</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="24" data-next-match="Match28" data-prev-match="8" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed24-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname24-1"></div> 
+                                            <div class="lastName" id="lastname24-1"></div>
+                                        </div>
+                                        <div class="school" id="school24-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="24" data-next-match="Match28" data-prev-match="8" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed24-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname24-2"></div> 
+                                            <div class="lastName" id="lastname24-2"></div>
+                                        </div>
+                                        <div class="school" id="school24-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line roundof16-eighth-line"></div>
+                                <div class="vertical-line roundof16-eighth-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+
+
+                        </div> <!-- End of Round of 16 -->
+                        <div class="round" id="Quarterfinals"> <!-- Start of Quarterfinal Round-->
+
+
+
+                            <!-- Match 25, Quarterfinal 1 -->
+                            <div class="matchup-container">
+                                <div id="Match25" class="matchup no-scroll-center" style="top: 40vw;">
+                                    <div class="match-label" id="match25label">Match 25</div>
+                                    <div class="match-label" style="right:0;">Quarterfinal 1</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="25" data-next-match="Match29" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed25-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname25-1"></div> 
+                                            <div class="lastName" id="lastname25-1"></div>
+                                        </div>
+                                        <div class="school" id="school25-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="25" data-next-match="Match29" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed25-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname25-2"></div> 
+                                            <div class="lastName" id="lastname25-2"></div>
+                                        </div>
+                                        <div class="school" id="school25-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line round-4-first-line"></div>
+                                <div class="vertical-line round-4-first-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 26, Quarterfinal 2 -->
+                            <div class="matchup-container">
+                                <div id="Match26" class="matchup no-scroll-center" style="top: 120vw;">
+                                    <div class="match-label" id="match26label">Match 26</div>
+                                    <div class="match-label" style="right:0;">Quarterfinal 2</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="26" data-next-match="Match29" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed26-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname26-1"></div> 
+                                            <div class="lastName" id="lastname26-1"></div>
+                                        </div>
+                                        <div class="school" id="school26-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="26" data-next-match="Match29" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed26-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname26-2"></div> 
+                                            <div class="lastName" id="lastname26-2"></div>
+                                        </div>
+                                        <div class="school" id="school26-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line round-4-second-line"></div>
+                                <div class="vertical-line round-4-second-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Match 27, Quarterfinal 3 -->
+                            <div class="matchup-container">
+                                <div id="Match27" class="matchup no-scroll-center" style="top: 200vw;">
+                                    <div class="match-label" id="match27label">Match 27</div>
+                                    <div class="match-label" style="right:0;">Quarterfinal 3</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="27" data-next-match="Match30" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed27-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname27-1"></div> 
+                                            <div class="lastName" id="lastname27-1"></div>
+                                        </div>
+                                        <div class="school" id="school27-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="27" data-next-match="Match30" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed27-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname27-2"></div> 
+                                            <div class="lastName" id="lastname27-2"></div>
+                                        </div>
+                                        <div class="school" id="school27-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line round-4-third-line"></div>
+                                <div class="vertical-line round-4-third-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+
+                            <!-- Match 28, Quarterfinal 4 -->
+                            <div class="matchup-container">
+                                <div id="Match28" class="matchup no-scroll-center" style="top: 280vw;">
+                                    <div class="match-label" id="match28label">Match 28</div>
+                                    <div class="match-label" style="right:0;">Quarterfinal 4</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="28" data-next-match="Match30" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed28-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname28-1"></div> 
+                                            <div class="lastName" id="lastname28-1"></div>
+                                        </div>
+                                        <div class="school" id="school28-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="28" data-next-match="Match30" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed28-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname28-2"></div> 
+                                            <div class="lastName" id="lastname28-2"></div>
+                                        </div>
+                                        <div class="school" id="school28-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line round-4-fourth-line"></div>
+                                <div class="vertical-line round-4-fourth-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+
+                        </div> <!-- End of Quarterfinal Round-->
+                        <div class="round" id="Semifinals"> <!-- Start of Semifinal Round-->
+
+                            <!-- Match 29, Semifinal 1 -->
+                            <div class="matchup-container">
+                                <div id="Match29" class="matchup no-scroll-center" style="top: 80vw;">
+                                    <div class="match-label" id="match29label">Match 29</div>
+                                    <div class="match-label" style="right:0;">Semifinal 1</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="29" data-next-match="Match31" data-slot="1" data-replace-slot="1">
+                                        <div class="seed" id="seed29-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname29-1"></div> 
+                                            <div class="lastName" id="lastname29-1"></div>
+                                        </div>
+                                        <div class="school" id="school29-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="29" data-next-match="Match31" data-slot="2" data-replace-slot="1">
+                                        <div class="seed" id="seed29-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname29-2"></div> 
+                                            <div class="lastName" id="lastname29-2"></div>
+                                        </div>
+                                        <div class="school" id="school29-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line round-5-first-line"></div>
+                                <div class="vertical-line round-5-first-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+
+                            <!-- Match 30, Semifinal 2 -->
+                            <div class="matchup-container">
+                                <div id="Match30" class="matchup no-scroll-center" style="top: 240vw;">
+                                    <div class="match-label" id="match30label">Match 30</div>
+                                    <div class="match-label" style="right:0;">Semifinal 2</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="30" data-next-match="Match31" data-slot="1" data-replace-slot="2">
+                                        <div class="seed" id="seed30-1"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname30-1"></div> 
+                                            <div class="lastName" id="lastname30-1"></div>
+                                        </div>
+                                        <div class="school" id="school30-1"></div> 
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="30" data-next-match="Match31" data-slot="2" data-replace-slot="2">
+                                        <div class="seed" id="seed30-2"></div> 
+                                        <div class="name">
+                                            <div class="firstName" id="firstname30-2"></div> 
+                                            <div class="lastName" id="lastname30-2"></div>
+                                        </div>
+                                        <div class="school" id="school30-2"></div> 
+                                    </div>
+                                </div>
+                                <div class="vertical-line round-5-second-line"></div>
+                                <div class="vertical-line round-5-second-line2"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+
+                        </div>
+                        <div class="round" id="Finals">
+
+                            <!-- Finals -->
+                            <div class="container">
+                                <div class="matchup-container">
+                                    <div id="Match31" class="matchup champion no-scroll-center" style="top: 160vw;">
+                                        <div class="match-label" style="right:0;" id="match31label">Finals Match</div> 
+                                        <div class="match-label">Match 31</div>
+                                        <div class="participant" onclick="selectParticipant(this)" data-match="31" data-next-match="predictedChampion" data-replace-slot="1" data-slot="1">
+                                            <div class="seed" id="seed31-1"></div> 
+                                            <div class="name">
+                                                <div class="firstName" id="firstname31-1"></div> 
+                                                <div class="lastName" id="lastname31-1"></div>
+                                            </div>
+                                            <div class="school" id="school31-1"></div> 
+                                        </div>
+                                        <div class="participant" onclick="selectParticipant(this)" data-match="31" data-next-match="predictedChampion" data-replace-slot="1" data-slot="2">
+                                            <div class="seed" id="seed31-2"></div> 
+                                            <div class="name">
+                                                <div class="firstName" id="firstname31-2"></div> 
+                                                <div class="lastName" id="lastname31-2"></div>
+                                            </div>
+                                            <div class="school" id="school31-2"></div> 
+                                        </div>
+                                    </div>
+                                    <div class="vertical-line round-6-first-line"></div>
+                                </div>
+                            </div><!-- End of Container-->
+
+
+                        
+                        </div> <!--End of Finals Round-->
+                        <div class="round" id="Champion"> <!-- Start of Champion Round-->
+
+
+                            <!-- Champion -->
+                            <div class="champion-section" id="Champion" style="top: 142.5vw;">
+                                <h2>125lb NCAA Champion</h2>
+                                <div class="participant" id="predictedChampion">
+                                    <div class="seed" id="championSeed"></div>
+                                    <div class="name">
+                                        <div class="firstName" id="championFirstName"></div> 
+                                        <div class="lastName" id="championLastName"></div>
+                                    </div>
+                                    <div class="school" id="championSchool"></div> 
+                                </div> <!--End of Participant Section DIV-->
+                            </div> <!--End of Champion Section DIV-->
+
+        
+
+                        </div> <!-- End of Champion round DIV-->
+                        <div class="round" id="roundspacer"> <!-- Start of Spacer Round to make Championship and Consolation bracekts the same width-->
+
+                        </div> <!-- End of Spacer Round -->
+
+
+
+
+
+                    </div> <!--End of Championship Bracket DIV-->
+
+
+
+
+                    <!-- Start of Consolation Bracket-->
+                    <div class="bracket" id="consolationbracket" style="display: none;">
+
+
+                        <div class="round" id="consolationround1">
+
+
+                            <!-- Consolation Match 1-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch1" style="top: 87vw;">
+                                    <div class="match-label" id="match25label">Match 1</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 1</div> 
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="consolationmatch1" data-slot="1" data-next-match="consolationmatch6" data-replace-slot="1">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant" onclick="selectParticipant(this)" data-match="consolationmatch1" data-slot="2" data-next-match="consolationmatch6" data-replace-slot="1">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                        </div> <!-- End of Consolation Round 1-->
+
+
+                        <div class="round" id="consolationround2">
+
+
+                            <!-- Consolation Match 2-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch2" style="top: 10vw;">
+                                    <div class="match-label" id="match25label">Match 2</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 2</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 3-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch3" style="top: 30vw;">
+                                    <div class="match-label" id="match25label">Match 3</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 2</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 4-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch4" style="top: 50vw;">
+                                    <div class="match-label" id="match25label">Match 4</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 2</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 5-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch5" style="top: 70vw;">
+                                    <div class="match-label" id="match25label">Match 5</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 2</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 6-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch6" style="top: 90vw;">
+                                    <div class="match-label" id="match25label">Match 6</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 2</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 7-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch7" style="top: 110vw;">
+                                    <div class="match-label" id="match25label">Match 7</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 2</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 8-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch8" style="top: 130vw;">
+                                    <div class="match-label" id="match25label">Match 8</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 2</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 9-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch9" style="top: 150vw;">
+                                    <div class="match-label" id="match25label">Match 9</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 2</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+                            
+
+
+                        </div> <!-- End of Consolation Round 2-->
+                        <div class="round" id="consolationround3"> <!-- Start of Consolation Round 3-->
+
+
+
+                            <!-- Consolation Match 10-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch10" style="top: 13vw;">
+                                    <div class="match-label" id="match25label">Match 10</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 3</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+                            
+                            <!-- Consolation Match 11-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch11" style="top: 33vw;">
+                                    <div class="match-label" id="match25label">Match 11</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 3</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 12-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch12" style="top: 53vw;">
+                                    <div class="match-label" id="match25label">Match 12</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 3</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match =13-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch13" style="top: 73vw;">
+                                    <div class="match-label" id="match25label">Match 13</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 3</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 14-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch14" style="top: 93vw;">
+                                    <div class="match-label" id="match25label">Match 14</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 3</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 15-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch15" style="top: 113vw;">
+                                    <div class="match-label" id="match25label">Match 15</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 3</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 16-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch16" style="top: 133vw;">
+                                    <div class="match-label" id="match25label">Match 16</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 3</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 17-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch17" style="top: 153vw;">
+                                    <div class="match-label" id="match25label">Match 17</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 3</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+
+                        </div> <!-- End of Consolation Round 3-->
+                        <div class="round" id="consolationround4"> <!-- Start of Consolation Round 4-->
+
+                            <!-- Consolation Match 18-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch18" style="top: 23vw;">
+                                    <div class="match-label" id="match25label">Match 18</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 4</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                                <div class="vertical-line consoround4match18line"></div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 19-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch19" style="top: 63vw;">
+                                    <div class="match-label" id="match25label">Match 19</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 4</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                                <div class="vertical-line consoround4match19line"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 20-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch20" style="top: 103vw;">
+                                    <div class="match-label" id="match25label">Match 20</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 4</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                                <div class="vertical-line consoround4match20line"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 21-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch21" style="top: 143vw;">
+                                    <div class="match-label" id="match25label">Match 21</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 4</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                                <div class="vertical-line consoround4match21line"></div>
+
+                            </div><!-- End of Matchup Container-->
+                            
+
+
+                        </div> <!-- End of Consolation Round 4-->
+                        <div class="round" id="consolationround5"> <!-- Start of Consolation Round 5-->
+
+                            
+                            <!-- Consolation Match 22-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch22" style="top: 26vw;">
+                                    <div class="match-label" id="match25label">Match 22</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 5</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 23-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch23" style="top: 66vw;">
+                                    <div class="match-label" id="match25label">Match 23</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 5</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 24-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch24" style="top: 106vw;">
+                                    <div class="match-label" id="match25label">Match 24</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 5</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 25-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch25" style="top: 146vw;">
+                                    <div class="match-label" id="match25label">Match 25</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 5</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+                        
+
+
+                        </div> <!-- End of Consolation Round 5-->
+                        <div class="round" id="consolationround5"> <!-- Start of Consolation Round 6 -->
+
+                            <!-- Consolation Match 26-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch26" style="top: 46vw;">
+                                    <div class="match-label" id="match25label">Match 26</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 6</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                                <div class="vertical-line consoround4match26line"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 27-->
+                            <div class="matchup-container">
+                                <div class="matchup first-matchup" id="consolationmatch27" style="top: 126vw;">
+                                    <div class="match-label" id="match25label">Match 27</div>
+                                    <div class="match-label" style="right:0;">Consolation Round 6</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                                <div class="vertical-line consoround4match27line"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+
+
+                        </div> <!-- End of Consolation Round 6 -->
+                        <div class="round" id="consolationround7"> <!-- Start of Consolation Round 7-->
+
+                            <!-- Consolation Match 28-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch28" style="top: 49vw;">
+                                    <div class="match-label" id="match25label">Match 28</div>
+                                    <div class="match-label" style="right:0;">Consolation Semifinal 1</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+
+                            </div><!-- End of Matchup Container-->
+
+                            <!-- Consolation Match 29-->
+                            <div class="matchup-container">
+                                <div class="matchup" id="consolationmatch29" style="top: 129vw;">
+                                    <div class="match-label" id="match25label">Match 29</div>
+                                    <div class="match-label" style="right:0;">Consolation Semifinal 2</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Matchup Container-->
+
+
+                        </div> <!-- End of Consolation Round 7-->
+                        <div class="round" id="consolationround8"> <!-- Start of Consolation Round 8-->
+
+                            <!-- Consolation Match 30-->
+                            <div class="matchup-container">
+                                <div class="matchup no-line" id="consolationmatch30" style="top: 89vw;">
+                                    <div class="match-label" id="match25label">Match 30</div>
+                                    <div class="match-label" style="right:0;">3rd Place Match</div> 
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                    <div class="participant">
+                                        <div class="seed"></div>
+                                        <div class="name">
+                                            <div class="firstName"></div>
+                                            <div class="lastName"></div>
+                                        </div>
+                                        <div class="school"></div>
+                                    </div>
+                                </div>
+                                <div class="vertical-line consoround4match30line"></div>
+
+                            </div><!-- End of Matchup Container-->
+
+                        </div> <!-- End of Consolation Round 8 -->
+
+
+                    </div><!-- End of Consolation Bracket-->
+
+
+
+
+
+                </div> <!--End of Bracket Holder Container DIV-->
+            </div> <!-- End of Zoom Container DIV -->
+
+    
+</body>
+
+
+    
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module" >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+        import { getFirestore, collection, addDoc, doc, setDoc, getDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCPdrvp8wn0qqo2pSRXrCmC4PMRprzPFN0",
+            authDomain: "ncaa-bracket-challenge.firebaseapp.com",
+            projectId: "ncaa-bracket-challenge",
+            storageBucket: "ncaa-bracket-challenge.appspot.com",
+            messagingSenderId: "654181665464",
+            appId: "1:654181665464:web:f6d4fd1b4cf20789ee824d",
+            measurementId: "G-50BYF49X2K"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+        async function addWeightClass(db, weightClassName, participants) {
+            const docRef = doc(db, "WeightClasses", weightClassName);
+            await setDoc (docRef, {
+                weightClass: weightClassName,
+                participants: participants
+            });
+            console.log("Document written with ID: ", docRef.id);
+        }
+
+        async function getWeightClass(db, weightClassName) {
+            const weightClassesRef = collection(db, "WeightClasses");
+            const q = query(weightClassesRef, where("weightClass", "==", weightClassName));
+            const querySnapshot = await getDocs(q);
+
+            if (!querySnapshot.empty) {
+                querySnapshot.forEach((doc) => {
+                    console.log("Document data:", doc.data());
+                });
+                return querySnapshot.docs[0].data().participants;
+            } else {
+                console.log("No such document!");
+                return [];
+            }
+        }
+
+        function toTitleCase(str) {
+            return str.replace(/\w\S*/g, function(txt){
+                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            });
+        }
+
+        function toUpperCase(str) {
+            return str.toUpperCase();
+        }
+
+        function formatName(name) {
+            let [firstname, ...lastname] = name.split(' ');
+            lastname = lastname.join(' '); // in case the last name has multiple words
+            return `${toTitleCase(firstname)} ${toUpperCase(lastname)}`;
+        }
+        
+        addWeightClass(db, "125 lbs", [
+            { name: "Spencer Lee", school: "Iowa", seed: 1},
+            { name: "Pat Glory", school: "Princeton", seed: 2},
+            { name: "Liam Cronin", school: "Nebraska", seed: 3},
+            { name: "Matt Ramos", school: "Purdue", seed: 4},
+            { name: "Caleb Smith", school: "Appalachian State", seed: 5},
+            { name: "Stevo Poulin", school: "Northern Colorado", seed: 6},
+            { name: "Brandon Kaylor", school: "Oregon State", seed: 7},
+            { name: "Anthony Noto", school: "Lehigh", seed: 8},
+            { name: "Eric Barnett", school: "Wisconsin", seed: 9},
+            { name: "Brandon Courtney", school: "Arizona State", seed: 10},
+            { name: "Patrick McKee", school: "Minnesota", seed: 11},
+            { name: "Michael DeAugustino", school: "Northwestern", seed: 12},
+            { name: "Dean Peterson", school: "Rutgers", seed: 13},
+            { name: "Noah Surtin", school: "Missouri", seed: 14},
+            { name: "Brett Ungar", school: "Cornell", seed: 15},
+            { name: "Jack Medley", school: "Michigan", seed: 16},
+            { name: "Ethan Berginc", school: "Army", seed: 17},
+            { name: "Ryan Miller", school: "Penn", seed: 18},
+            { name: "Braxton Brown", school: "Maryland", seed: 19},
+            { name: "Jarrett Trombley", school: "NC State", seed: 20},
+            { name: "Jore Volk", school: "Wyoming", seed: 21},
+            { name: "Diego Sotelo", school: "Harvard", seed: 22},
+            { name: "Jake Ferri", school: "Kent State", seed: 23},
+            { name: "Nick Babin", school: "Columbia", seed: 24},
+            { name: "Joey Prata", school: "Oklahoma", seed: 25},
+            { name: "Jack Wagner", school: "Michigan", seed: 26},
+            { name: "Eddie Ventresca", school: "Virginia Tech", seed: 27},
+            { name: "Killian Cardinale", school: "West Virginia", seed: 28},
+            { name: "Nico Provo", school: "Stanford", seed: 29},
+            { name: "Antonio Lorenzo", school: "Cal Poly", seed: 30},
+            { name: "Reece Witcraft", school: "Oklahoma State", seed: 31},
+            { name: "Tanner Jordan", school: "South Dakota State", seed: 32},
+            { name: "Tucker Owens", school: "Air Force", seed: 33}
+        ]).then(() => getWeightClass(db, "125 lbs"))
+        .then(participants => {
+            console.log(participants.find(participant => participant.seed === 19));
+            console.log(participants); // logs the participants data first. 
+            participants.forEach(participant => {
+                try {
+                    const nameParts = participant.name.split(' ');
+                    const firstName = toTitleCase(nameParts[0]);
+                    const lastName = nameParts[1].toUpperCase();
+
+                    console.log(`firstname${participant.seed}`);
+                    document.getElementById(`firstname${participant.seed}`).textContent = firstName;
+                    console.log(`lastname${participant.seed}`);
+                    document.getElementById(`lastname${participant.seed}`).textContent = lastName;
+                    console.log(`school${participant.seed}`);
+                    document.getElementById(`school${participant.seed}`).textContent = toTitleCase(participant.school);
+                    console.log(`seed${participant.seed}`);
+                    document.getElementById(`seed${participant.seed}`).textContent = participant.seed;
+                } catch (error) {
+            console.error(`Error processing participant with seed ${participant.seed}:`, error);
+        }
+            });
+        })
+        .catch(error => console.error("Error processing data:", error));
+
+        let clickedParticipant = null; 
+
+        window.selectParticipant = function(element) {
+            // Get the match, next match IDs, and replace slot from the element's data attributes
+            var matchId = element.getAttribute('data-match');
+            var nextMatchId = element.getAttribute('data-next-match');
+            var nextMatchLoserId = element.getAttribute('data-next-match-loser');
+            var replaceSlotLoser = element.getAttribute('data-replace-slot-loser');
+            var replaceSlot = element.getAttribute('data-replace-slot');
+
+            // Fetch the participant details
+            var participantData = getParticipantData(element);
+
+            // If nextMatchId is 'predictedChampion', assign the values directly
+            if (nextMatchId === 'predictedChampion') {
+                updateParticipantData(document.getElementById(nextMatchId), participantData);
+            } else {
+                // Get the next match element
+                var nextMatchElem = document.getElementById(nextMatchId);
+
+                // Use replaceSlot to determine which participant to replace
+                var participantElem = nextMatchElem.querySelector(`.participant[data-slot="${replaceSlot}"]`);
+                updateParticipantData(participantElem, participantData);
+            }
+
+            // If nextMatchLoserId exists, move the unselected participant to the consolation bracket
+            if (nextMatchLoserId && replaceSlotLoser) {
+                // Get the match element that contains this participant
+                var matchElem = document.getElementById(matchId);
+
+                // Get the other participant in this match
+                var otherParticipantElem = matchElem.querySelector(`.participant:not([data-slot="${element.getAttribute('data-slot')}"])`);
+
+                // Get the next match for the loser element
+                var nextMatchLoserElem = document.getElementById(nextMatchLoserId);
+
+                // Use replaceSlotLoser to determine which participant to replace
+                var participantLoserElem = nextMatchLoserElem.querySelector(`.participant[data-slot="${replaceSlotLoser}"]`);
+                updateParticipantData(participantLoserElem, getParticipantData(otherParticipantElem));
+            }
+        };
+
+        // This function returns the data of a participant
+        function getParticipantData(element) {
+            var seed = element.getElementsByClassName('seed')[0].innerText;
+            var firstName = element.getElementsByClassName('firstName')[0].innerText;
+            var lastName = element.getElementsByClassName('lastName')[0].innerText;
+            var school = element.getElementsByClassName('school')[0].innerText;
+
+            return {
+                seed: seed,
+                firstName: firstName,
+                lastName: lastName,
+                school: school
+            };
+        }
+
+        // This function updates the data of a participant
+        function updateParticipantData(element, participantData) {
+            element.getElementsByClassName('seed')[0].innerText = participantData.seed;
+            element.getElementsByClassName('firstName')[0].innerText = participantData.firstName;
+            element.getElementsByClassName('lastName')[0].innerText = participantData.lastName;
+            element.getElementsByClassName('school')[0].innerText = participantData.school;
+        }
+
+
+
+        $(document).ready(function() {
+            // Zoom levels and functionality
+            var zoomLevels = [1, 0.5, 0.2];
+            var currentZoomLevel = 0;
+            var lastClickX = 0;
+            var lastClickY = 0;
+
+            // Participant selection and advancement reset functionality
+            function resetAdvancements(element) {
+                var advancedParticipants = document.querySelectorAll(`[data-prev-match="${element.dataset.match}"]`);
+                for (let i = 0; i < advancedParticipants.length; i++) {
+                    var participant = advancedParticipants[i];
+                    participant.querySelector('.seed').innerText = '';
+                    participant.querySelector('.firstName').innerText = '';
+                    participant.querySelector('.lastName').innerText = '';
+                    participant.querySelector('.school').innerText = '';
+                    resetAdvancements(participant);
+                }
+            }
+
+            function selectParticipant(element) {
+                resetAdvancements(element);
+            }
+
+            // Get the stored zoom level from localStorage
+            var storedZoomLevel = localStorage.getItem('zoomLevel');
+
+            if (storedZoomLevel !== null) {
+                currentZoomLevel = parseInt(storedZoomLevel, 10);
+                
+                var viewportCenterX = $(window).scrollLeft() + $(window).width()/2;
+                var viewportCenterY = $(window).scrollTop() + $(window).height()/2;
+
+                $('#zoom-container').css({
+                    'transform': 'scale(' + zoomLevels[currentZoomLevel] + ')',
+                    'transform-origin': viewportCenterX + 'px ' + viewportCenterY + 'px'
+                });
+            }
+
+
+        var zoomingIn = false;
+
+        $('#zoom-out-button').click(function(e) {
+            e.stopPropagation(); // Prevent the click event from bubbling up
+
+            // Capture scroll position and viewport dimensions before zooming
+            var preZoomScrollTop = $(window).scrollTop();
+            var preZoomScrollLeft = $(window).scrollLeft();
+            var viewportWidth = $(window).width();
+            var viewportHeight = $(window).height();
+
+            // Capture the mouse position relative to the viewport
+            var mouseX = e.clientX;
+            var mouseY = e.clientY;
+
+            // Calculate the point of interest's relative position in the viewport
+            var pointOfInterestX = (mouseX + preZoomScrollLeft) / viewportWidth;
+            var pointOfInterestY = (mouseY + preZoomScrollTop) / viewportHeight;
+
+            // Zooming in or out code
+            if (zoomingIn) {
+                currentZoomLevel--;
+                if (currentZoomLevel < 0) {
+                    currentZoomLevel = 1;
+                    zoomingIn = false;
+                }
+            } else {
+                currentZoomLevel++;
+                if (currentZoomLevel >= zoomLevels.length) {
+                    currentZoomLevel = zoomLevels.length - 2;
+                    zoomingIn = true;
+                }
+            }
+
+            // Determine the viewport center
+            var viewportCenterX = $(window).scrollLeft() + $(window).width() / 2;
+            var viewportCenterY = $(window).scrollTop() + $(window).height() / 2;
+
+            // Apply the zoom level
+            $('#zoom-container').css({
+                'transform': 'scale(' + zoomLevels[currentZoomLevel] + ')',
+                'transform-origin': viewportCenterX + 'px ' + viewportCenterY + 'px'
+            });
+
+            // Set the new scroll positions to keep the point of interest in the same relative position
+            var newScrollLeft = pointOfInterestX * viewportWidth - mouseX;
+            var newScrollTop = pointOfInterestY * viewportHeight - mouseY;
+
+            $(window).scrollTop(newScrollTop);
+            $(window).scrollLeft(newScrollLeft);
+
+            // Store the current zoom level in localStorage
+            localStorage.setItem('zoomLevel', currentZoomLevel);
+        });
+
+
+
+
+
+
+            // Scroll tracking and storage functionality
+            $(window).scroll(function() {
+                var scrollTopPercent = $(window).scrollTop() / $(document).height();
+                localStorage.setItem('scrollTop', scrollTopPercent);
+
+                localStorage.setItem('scrollX', $(window).scrollLeft());
+                localStorage.setItem('scrollY', $(window).scrollTop());
+
+            });
+
+            // Click animation functionality
+            $(document).click(function(e) {
+                // create a new div element
+                var clickAnimation = $('<div>').addClass('click-animation');
+
+                // set the position of the element
+                clickAnimation.css({
+                    top: e.pageY - 25, // subtracting half of the final size to center the animation
+                    left: e.pageX - 25 // subtracting half of the final size to center the animation
+                });
+
+                // add the element to the body
+                $('body').append(clickAnimation);
+
+                // remove the element after the animation has completed
+                setTimeout(function() {
+                    clickAnimation.remove();
+                }, 200); // matches the animation duration
+            });
+        });
+
+
+
+    /* Adds an animation to a participant when they are clicked */
+    $('.participant').click(function() {
+        $(this).siblings('.participant').removeClass('checked');
+        $(this).addClass('checked');
+
+        // Add an animation
+        $(this).animate({
+            opacity: 0.5,
+            'font-size': '100%',
+            'font-weight': 'bold' // Add the font-weight property
+        }, 1, function() {
+            // Animation complete.
+            $(this).animate({
+                opacity: 1.0,
+                'font-size': '100%',
+                'font-weight': 'bold' // Reset the font-weight property
+            }, 1);
+        });
+    });
+
+
+
+
+    // Start of the function that shows and hides the championship and consolation brackets when a tab is clicked
+
+        $(document).ready(function() {
+        // Initially hide all brackets
+        $('.bracket').hide();
+
+        // Show the championship bracket by default
+        $('#championshipbracket').show();
+
+        $('#championshipButton').click(function() {
+            $('.bracket').hide();
+            $('#championshipbracket').show();
+        });
+
+        $('#consolationButton').click(function() {
+            $('.bracket').hide();
+            $('#consolationbracket').show();
+        });
+
+        $('#thirdFifthButton').click(function() {
+            $('.bracket').hide();
+            $('#thirdFifthbracket').show();
+        });
+
+        $('#allAmericansButton').click(function() {
+            $('.bracket').hide();
+            $('#allAmericansbracket').show();
+        });
+    });
+
+
+
+
+    // End of tab click function to show and hide the brackets 
+
+
+
+
+
+</script>
+</body>
+</html>
