@@ -110,7 +110,6 @@ body {
     display:flex;
     align-items: center;
     background-color: transparent;
-    color: #333;
     padding: 25px;
     width: 100%;
     bottom: 0;
@@ -127,9 +126,9 @@ body {
     width: 20vw;
     height: 7vh;
     background: transparent;
-    background-color: #333;
-    color: rgba(255, 255, 255, 0.655);
-    border-color: none;
+    background-color: #ffffff;
+    color: rgba(49, 49, 49, 0.75);
+    border: none;
     opacity: 80%;
 }
 
@@ -237,7 +236,7 @@ body {
     min-width:50vw;            
     height: 12vw;
     border-radius: 1px;
-    background-color: #ffffff9a;
+    background-color: #ffffffb9;
     box-sizing: border-box;
     z-index: 1;
     margin-left: 5vw;
@@ -265,16 +264,18 @@ body {
 .matchup::after { /*Horizontal connector line that extends to the right of each matchup (connects to vertical line)*/
     content: '';
     position: absolute;
-    width: 82.2vw; /* changed from 111vw to 100% */
+    width: 27.25vw; /* changed from 111vw to 100% */
     height: 1px;
     top: 6vw;
+    right: -27.25vw;
     background: #ffffff;
     animation: fadeIn .6s ease-in;
     z-index: 0;
 }
 
 .first-matchup::after {
-    width: 67.55vw;  /* or whatever width you need */
+    width: 12.6vw;
+    right: -12.59vw  /* or whatever width you need */
 }
 
 
@@ -383,7 +384,7 @@ body {
 
 
 .participant .school { /*Customizing the text of the School Name*/
-    color: #b50c0c;
+    color: #2e2e2e;
     animation: fadeIn .6s ease-in;
     letter-spacing: .05vw;
     text-transform: capitalize;
@@ -525,6 +526,12 @@ body {
     height: 4vw;
 }
 
+.roundof16-eighth-line2 {
+    top: 312vw;
+    left: 19.6vw;
+    height: 4.055vw;
+}
+
 
 .round-4-line::before {
     height: 100%; /* this will make the pseudo-element the full height of .round-4-line */
@@ -533,26 +540,50 @@ body {
 .round-4-first-line {
     top: 26vw;
     left: 19.6vw;
-    height: 40vw;
+    height: 14vw;
+}
+
+.round-4-first-line2 {
+    top: 52vw;
+    left: 19.6vw;
+    height: 14.05vw;
 }
 
 .round-4-second-line {
     top: 106vw;
     left: 19.6vw;
-    height: 40vw;
+    height: 14vw;
+}
+
+.round-4-second-line2 {
+    top: 132vw;
+    left: 19.6vw;
+    height: 14.075vw;
 }
 
 
 .round-4-third-line {
     top: 186vw;
     left: 19.6vw;
-    height: 40vw;
+    height: 14vw;
+}
+
+.round-4-third-line2 {
+    top: 212vw;
+    left: 19.6vw;
+    height: 14.075vw;
 }
 
 .round-4-fourth-line {
     top: 266vw;
     left: 19.6vw;
-    height: 40vw;
+    height: 14vw;
+}
+
+.round-4-fourth-line2 {
+    top: 292vw;
+    left: 19.6vw;
+    height: 14.075vw;
 }
 
 .round-5-line::before {
@@ -562,15 +593,26 @@ body {
 .round-5-first-line {
     top: 46vw;
     left: 19.6vw;
-    height: 80.05vw;
+    height: 34vw;
 }
 
+.round-5-first-line2 {
+    top: 92vw;
+    left: 19.6vw;
+    height: 34.075vw;
+}
 
 
 .round-5-second-line {
     top: 206vw;
     left: 19.6vw;
-    height: 80.075vw;
+    height: 34vw;
+}
+
+.round-5-second-line2 {
+    top: 252vw;
+    left: 19.6vw;
+    height: 34.075vw;
 }
 
 
